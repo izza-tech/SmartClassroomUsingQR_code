@@ -65,6 +65,8 @@ public class scanqrcode extends AppCompatActivity {
                         if(Integer.valueOf(t)<30) {
                             // StorageReference childs=mref.child("attend/");
                             String uemail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+
                             UploadTask uploadTask = mref.putBytes(uemail.getBytes());
                             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override
@@ -72,6 +74,8 @@ public class scanqrcode extends AppCompatActivity {
                                     Toast.makeText(scanqrcode.this, "attendence marked ", Toast.LENGTH_SHORT).show();
                                 }
                             });
+
+                            
                             startActivity(new Intent(scanqrcode.this, attendence_marked.class));
                         }
                         else
