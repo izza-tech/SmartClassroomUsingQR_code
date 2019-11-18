@@ -59,6 +59,8 @@ public class scanqrcode extends AppCompatActivity {
                 SUMBIT=findViewById(R.id.btnsubmitattendence);
                 SUMBIT.setOnClickListener(new View.OnClickListener() {
                     @Override
+
+
                     public void onClick(View v) {
                         if(Integer.valueOf(t)<30) {
                             // StorageReference childs=mref.child("attend/");
