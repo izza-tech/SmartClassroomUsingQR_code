@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="QUESTION">question</string>
+    <string name="CORRECT">correct</string>
+    <string name="WRONG">wrong</string>
+</resources>

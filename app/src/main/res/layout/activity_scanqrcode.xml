@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+    tools:context=".students" android:padding="30dp"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="@color/colorblue"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:text="Scan QR_Code"/>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="#ffffffff"
+        android:textSize="22sp"
+        android:text="Mark attendence"
+        android:background="@drawable/roundedbutton"
+        android:layout_marginTop="15dp"
+        android:id="@+id/btnmarkattendence"/>
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:padding="30dp" android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/scanqrcode"/>
+
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="@color/colorblue"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:text="result"
+        android:layout_marginTop="15dp"
+        android:id="@+id/textview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="#ffffffff"
+        android:textSize="20sp"
+        android:text="submit attendence"
+        android:background="@drawable/roundedbutton"
+        android:layout_marginTop="15dp"
+        android:id="@+id/btnsubmitattendence"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

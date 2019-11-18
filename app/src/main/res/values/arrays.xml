@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="semester">
+        <item>Semester_1</item>
+        <item>Semester_2</item>
+        <item>Semester_3</item>
+        <item>Semester_4</item>
+        <item>Semester_5</item>
+        <item>Semester_6</item>
+        <item>Semester_7</item>
+        <item>Semester_8</item>
+    </string-array>
+    <string-array name="shift">
+        <item>Morning</item>
+        <item>Evening</item>
+    </string-array>
+</resources>

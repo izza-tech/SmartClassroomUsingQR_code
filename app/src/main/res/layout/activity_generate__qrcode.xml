@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    tools:context=".generate_QRcode">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/qrcode"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0sp"
+        android:layout_marginBottom="15dp"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:padding="@dimen/cardview_default_radius"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorblue">
+
+        <EditText
+            android:id="@+id/edittextteachername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="58dp"
+            android:hint="Enter Teacher Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:padding="@dimen/cardview_default_radius"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorblue">
+
+        <EditText
+            android:id="@+id/edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qrcode"
+            android:layout_marginTop="58dp"
+            android:hint="enter subject" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:padding="@dimen/cardview_default_radius"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorblue">
+        <EditText
+            android:id="@+id/et_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="select date"
+            />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/spinnersemester"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:entries="@array/semester"
+        android:padding="@dimen/cardview_default_radius"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorblue"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="22dp"
+               />
+    <Spinner
+        android:id="@+id/spinnershift"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:entries="@array/shift"
+        android:padding="@dimen/cardview_default_radius"
+        android:focusableInTouchMode="true"
+        android:textColorHint="@color/colorblue"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/colorblue"
+        android:textSize="22dp"
+android:layout_marginTop="5dp"        />
+
+
+
+
+
+    <Button
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:text="create qr code"
+        android:layout_below="@+id/edittext"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#ffffffff"
+        android:background="@drawable/roundedbutton"
+        android:layout_marginTop="5dp"
+
+        android:id="@+id/createbutton"
+        />
+    <Button
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:text="save to gallery"
+        android:layout_below="@+id/edittext"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#ffffffff"
+        android:background="@drawable/roundedbutton"
+        android:layout_marginTop="5dp"
+
+        android:id="@+id/btnsavetogallery"
+        />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

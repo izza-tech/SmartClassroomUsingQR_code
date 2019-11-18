@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <LinearLayout tools:context=".notifications" android:background="#fff" android:padding="30dp" android:orientation="vertical" android:layout_height="match_parent" android:layout_width="match_parent" xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.appcompat.widget.AppCompatImageView android:padding="0dp" android:layout_height="200dp" android:layout_width="match_parent" android:layout_marginBottom="20dp" android:src="@drawable/notification2"/>
+
+    <EditText android:background="@drawable/edittextborder" android:layout_height="39dp" android:layout_width="match_parent" android:layout_marginBottom="0dp" android:textSize="20sp" android:inputType="text" android:textColorHint="@color/colorblue" android:hint=" Subject Title" android:ems="10" android:layout_marginTop="20sp" android:id="@+id/editTexttitle"/>
+
+    <EditText android:background="@drawable/edittextborder" android:layout_height="200dp" android:layout_width="match_parent" android:textSize="20sp" android:inputType="textMultiLine" android:textColorHint="@color/colorblue" android:hint=" Assignment Question" android:ems="10" android:layout_marginTop="20sp" android:id="@+id/editTextmessag" android:gravity="start|top"/>
+
+    <Button android:background="@drawable/roundedbutton" android:layout_height="wrap_content" android:layout_width="match_parent" android:textSize="20sp" android:layout_marginTop="20dp" android:id="@+id/button5" android:textColor="#ffffffff" android:onClick="displaynotifications" android:textAllCaps="false" android:text="Submit Notification"/>
+
+</LinearLayout>

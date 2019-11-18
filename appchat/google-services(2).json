@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "363376664066",
+    "firebase_url": "https://chatsdemo-ee0d1.firebaseio.com",
+    "project_id": "chatsdemo-ee0d1",
+    "storage_bucket": "chatsdemo-ee0d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363376664066:android:b7c5230868bc596dfb111b",
+        "android_client_info": {
+          "package_name": "com.example.chatsdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363376664066-9eggkiao0s7qgst8v050m0st1m55pklp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_NMkx9mxYbdxIvB9LGDt4dFx2SJX4Rtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363376664066-9eggkiao0s7qgst8v050m0st1m55pklp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

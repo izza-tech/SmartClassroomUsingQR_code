@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.smartclassroomusingqr_code">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ViewNotifications"></activity>
+        <activity android:name=".ScanQuiz" />
+        <activity android:name=".AttemptQuiz" />
+        <activity android:name=".GenerateQuiz" />
+        <activity android:name=".Issue_Disscusion" />
+        <activity
+            android:name=".notifications"
+            android:parentActivityName=".teachers" />
+        <activity
+            android:name=".attendence_marked"
+            android:parentActivityName=".scanqrcode" />
+        <activity android:name=".attendence" />
+        <activity
+            android:name=".studentProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ChatApp.groupchatactivity" />
+        <activity android:name=".teacherActivity" />
+        <activity
+            android:name=".teacherslogin"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".activities.Teachersregistration" />
+        <activity android:name=".fragmentActivity" />
+        <activity android:name=".myrecyclerviewActivity" />
+        <activity
+            android:name=".uploadlectures"
+            android:parentActivityName=".teachers" />
+        <activity
+            android:name=".adminlogin"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".generate_QRcode"
+            android:parentActivityName=".teachers" />
+        <activity android:name=".studet_details" />
+        <activity
+            android:name=".scanqrcode"
+            android:parentActivityName=".students" />
+        <activity android:name=".attendencehistory" />
+        <activity
+            android:name=".students"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".activities.registeration" />
+        <activity
+            android:name=".teachers"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".admin"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".Quiz.QuizMainActivity" />
+        <activity android:name=".Quiz.QuizResultActivity" />
+        <activity
+            android:name=".studentlogin_validation"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".splashh">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+    </application>
+
+</manifest>

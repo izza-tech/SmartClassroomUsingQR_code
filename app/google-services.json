@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "812987722980",
+    "firebase_url": "https://smartclassroom-b2962.firebaseio.com",
+    "project_id": "smartclassroom-b2962",
+    "storage_bucket": "smartclassroom-b2962.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812987722980:android:c9ce4fe7364b8144",
+        "android_client_info": {
+          "package_name": "com.example.quizmodule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812987722980-g8q6uecil5hua7gif739v1ts3gidbag0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quizmodule",
+            "certificate_hash": "b463c72606eaadace36585f21615bc7deb3ed9f0"
+          }
+        },
+        {
+          "client_id": "812987722980-bt02v48o5d00uiov0iv50r0hq37ee5vv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe9Pz6U8GdRzeFo32nHHunydCjjplcoDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "812987722980-bt02v48o5d00uiov0iv50r0hq37ee5vv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812987722980:android:c4372d8180b27fc0",
+        "android_client_info": {
+          "package_name": "com.example.smartclassroomusingqr_code"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812987722980-v4krgmd2mkng9jcj7f9hoh1q7sqbii62.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartclassroomusingqr_code",
+            "certificate_hash": "883f1fddc4a136eb3ae4e86f85b2592903ab1107"
+          }
+        },
+        {
+          "client_id": "812987722980-gq9i6n8apafr7o9m3bugrclmrluobq1b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartclassroomusingqr_code",
+            "certificate_hash": "b463c72606eaadace36585f21615bc7deb3ed9f0"
+          }
+        },
+        {
+          "client_id": "812987722980-bt02v48o5d00uiov0iv50r0hq37ee5vv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe9Pz6U8GdRzeFo32nHHunydCjjplcoDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "812987722980-bt02v48o5d00uiov0iv50r0hq37ee5vv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

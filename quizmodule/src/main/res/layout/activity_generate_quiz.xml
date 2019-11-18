@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context=".GenerateQuizActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Questions"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:id="@+id/textviewquestion"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter question..."
+        android:layout_below="@+id/textviewquestion"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:id="@+id/enterquestion"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/enterquestion"
+        android:hint="option1"
+        android:textSize="20sp"
+        android:layout_marginTop="20sp"
+        android:layout_centerInParent="true"
+        android:id="@+id/option1"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/option1"
+        android:hint="option2"
+        android:layout_marginTop="20sp"
+        android:textSize="20sp"
+
+        android:layout_centerInParent="true"
+        android:id="@+id/option2"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/option2"
+        android:hint="option3"
+        android:layout_marginTop="20sp"
+        android:textSize="20sp"
+
+        android:layout_centerInParent="true"
+        android:id="@+id/option3"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/option3"
+        android:hint="option4"
+        android:layout_marginTop="20sp"
+        android:textSize="20sp"
+
+        android:layout_centerInParent="true"
+        android:id="@+id/option4"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/option4"
+        android:hint="Correct Option"
+        android:layout_marginTop="20sp"
+        android:textSize="20sp"
+
+        android:layout_centerInParent="true"
+        android:id="@+id/correctoption"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        android:layout_below="@+id/correctoption"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20sp"
+        android:textSize="20sp"/>
+</>

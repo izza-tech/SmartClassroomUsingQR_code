@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00b0ff</color>
+    <color name="colorPrimaryDark">#00b0ff</color>
+    <color name="colorAccent">#00b0ff</color>
+    <color name="colorAccentlight">#FF6F00</color>
+    <color name="colorsilver">#E7E3E0</color>
+    <color name="colorblue">#4B87EB</color>
+    <color name="colorbule1">#008DFF</color>
+    <color name="bg_splash">#82CAFF</color>
+    <color name="white">#ffffff</color>
+
+    <color name="my_spinner_text_color">#4B87EB</color>
+
+
+    <!--colors for profile-->
+    <color name="profilePrimaryDark">#3090C7</color>
+    <color name="profileAccentColor">#F7F7F7</color>
+    <color name="whiteTextColor">#fff</color>
+    <color name="profileBackground">#fff</color>
+    <color name="blackTextColor">#000</color>
+    <color name="profileEditTextColor">#707070</color>
+
+
+
+    <color name="address">#2F7092</color>
+    <color name="followers">#0D5D98</color>
+    <color name="headings">#3797CF</color>
+    <color name="solidcircle">#AAFFFFFF</color>
+    <color name="circleborder">#50FFFFFF</color>
+    <color name="gradend">#67EFC8</color>
+    <color name="gradstart">#63C9FF</color>
+    <color name="followersbg">#65DCE5</color>
+    <color name="followingbg">#49BEFF</color>
+    <color name="gray">#E5E5E5</color>
+
+</resources>
