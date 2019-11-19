@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -27,6 +29,8 @@ public class scanqrcode extends AppCompatActivity {
     Button markattendence,SUMBIT;
     public static TextView textView;
     private StorageReference mref;
+    FirebaseDatabase database;
+    DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,10 @@ public class scanqrcode extends AppCompatActivity {
         textView=(TextView)findViewById(R.id.textview);
         String barcode = getIntent().getStringExtra("code");
         textView.setText(barcode);
+        database= FirebaseDatabase.getInstance();
+        ref = database.getReference("Student_Attendance");
+        String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         final String currentTime = sdf.format(new Date());
         if(barcode != null) {
@@ -65,13 +73,14 @@ public class scanqrcode extends AppCompatActivity {
                         if(Integer.valueOf(t)<30) {
                             // StorageReference childs=mref.child("attend/");
                             String uemail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-
+                            //ref.child(currentuser).setValue(profiledata);
+                            //Toast.makeText(studentProfileActivity.this,"profile successfully saved..",Toast.LENGTH_LONG).show();
 
                             UploadTask uploadTask = mref.putBytes(uemail.getBytes());
                             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override
                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                    Toast.makeText(scanqrcode.this, "attendence marked ", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(scanqrcode.this, "attendance marked ", Toast.LENGTH_SHORT).show();
                                 }
                             });
 
