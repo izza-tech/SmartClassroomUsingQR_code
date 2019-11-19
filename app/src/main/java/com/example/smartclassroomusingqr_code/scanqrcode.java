@@ -75,7 +75,7 @@ public class scanqrcode extends AppCompatActivity {
                                 }
                             });
 
-                            
+
                             startActivity(new Intent(scanqrcode.this, attendence_marked.class));
                         }
                         else
