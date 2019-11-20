@@ -82,6 +82,7 @@ public class studentlogin_validation extends AppCompatActivity {
               }else {
                   //startActivity(new Intent(studentlogin_validation.this,students.class));
                   loginuser(EMAIL,PASSWORD);
+
               }
           }
       });

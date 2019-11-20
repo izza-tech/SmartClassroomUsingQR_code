@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:textColor="@color/colorblue"
-        android:textSize="40dp"
+        android:textSize="10dp"
         android:textStyle="bold"
         android:textAlignment="center"
         android:text="Scan QR_Code"/>
@@ -31,7 +31,7 @@
 
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:padding="30dp" android:layout_height="200dp"
+        android:padding="30dp" android:layout_height="100dp"
         android:layout_width="match_parent"
         android:layout_marginTop="20dp"
         android:src="@drawable/scanqrcode"/>

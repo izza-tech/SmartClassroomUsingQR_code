@@ -7,13 +7,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -23,6 +27,7 @@ import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class scanqrcode extends AppCompatActivity {
@@ -40,8 +45,8 @@ public class scanqrcode extends AppCompatActivity {
         String barcode = getIntent().getStringExtra("code");
         textView.setText(barcode);
         database= FirebaseDatabase.getInstance();
-        ref = database.getReference("Student_Attendance");
-        String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        ref = database.getReference("Student_Profiles");
+        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         final String currentTime = sdf.format(new Date());
@@ -72,9 +77,26 @@ public class scanqrcode extends AppCompatActivity {
                     public void onClick(View v) {
                         if(Integer.valueOf(t)<30) {
                             // StorageReference childs=mref.child("attend/");
-                            String uemail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-                            //ref.child(currentuser).setValue(profiledata);
-                            //Toast.makeText(studentProfileActivity.this,"profile successfully saved..",Toast.LENGTH_LONG).show();
+                            final String uemail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                            if(currentuser != null) {
+                                ref.child(currentuser).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        profiledata data = dataSnapshot.getValue(profiledata.class);
+
+                                        String StudentName = data.getNAME();
+                                        String Semester = data.getSEMESTER();
+                                        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+                                        database.getReference("Attendance").child(Semester).child(date).child(currentuser).setValue(StudentName);
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
+                            }
+
 
                             UploadTask uploadTask = mref.putBytes(uemail.getBytes());
                             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
