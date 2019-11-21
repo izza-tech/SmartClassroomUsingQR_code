@@ -15,7 +15,7 @@
         android:text="Admin_Portal"
         android:textAlignment="center"
         android:textStyle="bold"
-        android:textSize="40dp"
+        android:textSize="20dp"
         android:textColor="@color/colorblue"
     />
 
