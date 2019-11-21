@@ -89,8 +89,8 @@ public class scanqrcode extends AppCompatActivity {
                                         String StudentName = data.getNAME();
                                         String Semester = data.getSEMESTER();
                                         String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-                                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Name").setValue(StudentName);
-                                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Id").setValue(currentuser);
+                                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(StudentName).setValue(StudentName);
+//                                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Id").setValue(currentuser);
                                     }
 
                                     @Override
