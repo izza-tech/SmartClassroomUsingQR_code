@@ -80,8 +80,9 @@ public class studentlogin_validation extends AppCompatActivity {
                  email.setError("Invalid email");
                  email.setFocusable(true);
               }else {
-                  startActivity(new Intent(studentlogin_validation.this,students.class));
-                  //loginuser(EMAIL,PASSWORD);
+                  //startActivity(new Intent(studentlogin_validation.this,students.class));
+                  loginuser(EMAIL,PASSWORD);
+
               }
           }
       });

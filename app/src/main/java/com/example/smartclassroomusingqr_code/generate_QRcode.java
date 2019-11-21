@@ -30,6 +30,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
@@ -60,8 +62,7 @@ public class generate_QRcode extends AppCompatActivity {
         spinnersemester = (Spinner) findViewById(R.id.spinnersemester);
         spinnershift = (Spinner) findViewById(R.id.spinnershift);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-        final String currentTime = sdf.format(new Date());
+
         //textView.setText(currentDateandTime);
 
         save=(Button)findViewById(R.id.btnsavetogallery);
@@ -104,33 +105,20 @@ public class generate_QRcode extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                inputvalue="Teacher Name : "+etname.getText().toString().trim()+"\n Subject : "+et1.getText().toString().trim()+"\n Date : "+etdate.getText().toString().trim()+"\n Semester : "+spinnersemester.getSelectedItem().toString().trim()+"\n Shift : "+spinnershift.getSelectedItem().toString().trim()+"\n Time"+ currentTime +"\n";
+                postImg();
 
-                if (inputvalue.length()>0)
-
-                {
-                    WindowManager manager=(WindowManager)getSystemService(WINDOW_SERVICE);
-                    Display display= manager.getDefaultDisplay();
-                    Point point=new Point();
-                    display.getSize(point);
-                    int width=point.x;
-                    int height=point.y;
-                    int smallerdimension=width>height ? width:height;
-                    smallerdimension=smallerdimension*3/4;
-                    qrgEncoder =new QRGEncoder(inputvalue,null, QRGContents.Type.TEXT,smallerdimension);
-                    try {
-                        bitmap=qrgEncoder.encodeAsBitmap();
-                        QRimg.setImageBitmap(bitmap);
+                Timer timerAsync = new Timer();
+                TimerTask timerTaskAsync = new TimerTask() {
+                    @Override
+                    public void run() {
+                        runOnUiThread(new Runnable() {
+                            @Override public void run() {
+                                postImg();
+                            }
+                        });
                     }
-                    catch (WriterException e)
-                    {
-                        Log.v(TAG,e.toString());
-                    }
-                }
-                else
-                {
-                    et1.setError("required");
-                }
+                };
+                timerAsync.schedule(timerTaskAsync, 0, 5000);
             }
         });
 
@@ -157,4 +145,41 @@ public class generate_QRcode extends AppCompatActivity {
             }
         });
     }
+    void postImg(){
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        final String currentTime = sdf.format(new Date());
+        inputvalue="Teacher Name : "+etname.getText().toString().trim()+"\n Date : "+etdate.getText().toString().trim()+"\n Semester : "+spinnersemester.getSelectedItem().toString().trim()+"\n Shift : "+spinnershift.getSelectedItem().toString().trim()+"\n Subject : "+et1.getText().toString().trim()+"\n Time"+ currentTime +"\n";
+
+        if (inputvalue.length()>0)
+
+        {
+            WindowManager manager=(WindowManager)getSystemService(WINDOW_SERVICE);
+            Display display= manager.getDefaultDisplay();
+            final Point point=new Point();
+            display.getSize(point);
+            int width=point.x;
+            int height=point.y;
+            int smallerdimension=width>height ? width:height;
+            smallerdimension=smallerdimension*3/4;
+            qrgEncoder =new QRGEncoder(inputvalue,null, QRGContents.Type.TEXT,smallerdimension);
+            try {
+                bitmap=qrgEncoder.encodeAsBitmap();
+                QRimg.setImageBitmap(bitmap);
+            }
+            catch (WriterException e)
+            {
+                Log.v(TAG,e.toString());
+            }
+
+
+        }
+        else
+        {
+            et1.setError("required");
+        }
+
+
+    }
+
+
 }

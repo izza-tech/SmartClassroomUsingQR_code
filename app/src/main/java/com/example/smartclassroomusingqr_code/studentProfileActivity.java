@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -98,8 +99,9 @@ storageReference=storage.getReference();
     }
 
     private void getvalues() {
-        String id=ref.push().getKey();
-     String namep =pname.getText().toString();
+        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String id=currentuser;
+        String namep =pname.getText().toString();
         String mobilep =  pmobile.getText().toString();
         String emailp = pemail.getText().toString();
         String addressp =   paddress.getText().toString();
