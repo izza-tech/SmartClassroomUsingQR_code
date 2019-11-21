@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/qrcode"
             android:layout_marginTop="58dp"
+            android:maxLength="3"
             android:hint="enter subject" />
     </com.google.android.material.textfield.TextInputLayout>
 

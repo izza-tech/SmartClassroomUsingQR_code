@@ -118,7 +118,7 @@ public class generate_QRcode extends AppCompatActivity {
                         });
                     }
                 };
-                timerAsync.schedule(timerTaskAsync, 0, 25000);
+                timerAsync.schedule(timerTaskAsync, 0, 5000);
             }
         });
 
@@ -148,7 +148,7 @@ public class generate_QRcode extends AppCompatActivity {
     void postImg(){
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         final String currentTime = sdf.format(new Date());
-        inputvalue="Teacher Name : "+etname.getText().toString().trim()+"\n Subject : "+et1.getText().toString().trim()+"\n Date : "+etdate.getText().toString().trim()+"\n Semester : "+spinnersemester.getSelectedItem().toString().trim()+"\n Shift : "+spinnershift.getSelectedItem().toString().trim()+"\n Time"+ currentTime +"\n";
+        inputvalue="Teacher Name : "+etname.getText().toString().trim()+"\n Date : "+etdate.getText().toString().trim()+"\n Semester : "+spinnersemester.getSelectedItem().toString().trim()+"\n Shift : "+spinnershift.getSelectedItem().toString().trim()+"\n Subject : "+et1.getText().toString().trim()+"\n Time"+ currentTime +"\n";
 
         if (inputvalue.length()>0)
 

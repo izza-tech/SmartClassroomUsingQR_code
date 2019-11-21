@@ -52,8 +52,10 @@ public class scanqrcode extends AppCompatActivity {
         final String currentTime = sdf.format(new Date());
         if(barcode != null) {
             String time = barcode.substring(Integer.valueOf(barcode.length()) - 9);
-
-//            Toast.makeText(getApplicationContext(), time, Toast.LENGTH_LONG).show();
+            String ST = barcode.substring(Integer.valueOf(barcode.length())-18);
+            final String sub=ST.substring(0,3);
+            final String subject = sub.toUpperCase();
+            //Toast.makeText(getApplicationContext(), subject, Toast.LENGTH_LONG).show();
 
             String format = "hh:mm:ss";
             SimpleDateFormat df = new SimpleDateFormat(format);
@@ -75,7 +77,7 @@ public class scanqrcode extends AppCompatActivity {
 
 
                     public void onClick(View v) {
-                        if(Integer.valueOf(t)<30) {
+                        if(Integer.valueOf(t)<9) {
                             // StorageReference childs=mref.child("attend/");
                             final String uemail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
                             if(currentuser != null) {
@@ -87,8 +89,8 @@ public class scanqrcode extends AppCompatActivity {
                                         String StudentName = data.getNAME();
                                         String Semester = data.getSEMESTER();
                                         String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-                                        database.getReference("Attendance").child(Semester).child(date).child(currentuser).child("Name").setValue(StudentName);
-                                        database.getReference("Attendance").child(Semester).child(date).child(currentuser).child("Id").setValue(currentuser);
+                                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Name").setValue(StudentName);
+                                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Id").setValue(currentuser);
                                     }
 
                                     @Override
