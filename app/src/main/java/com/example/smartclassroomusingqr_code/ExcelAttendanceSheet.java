@@ -1,12 +1,24 @@
 package com.example.smartclassroomusingqr_code;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.firebase.client.Firebase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -20,14 +32,34 @@ import org.apache.poi.ss.usermodel.Workbook;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import javax.security.auth.Subject;
 
 public class ExcelAttendanceSheet extends AppCompatActivity {
     Button btn_Attendance;
+    FirebaseDatabase database;
+    String Semester;
+    TextView txtView;
+    EditText editText_Subject,editText_Semester;
+    Spinner spinner;
+    DatabaseReference ref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excel_attendance_sheet);
         btn_Attendance=(Button) findViewById(R.id.btn_Attendance);
+        editText_Subject = (EditText) findViewById(R.id.subject);
+        //editText_Semester = () findViewById(R.id.semester);
+        spinner=(Spinner) findViewById(R.id.dropdown);
+        String[] items=new String[]{"1","2","3","4","5","6","7","8"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,items);
+        spinner.setAdapter(adapter);
+        Semester=spinner.getSelectedItem().toString();
+        database= FirebaseDatabase.getInstance();
+        ref = database.getReference("Attendance");
         btn_Attendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,6 +72,31 @@ public class ExcelAttendanceSheet extends AppCompatActivity {
                 //Now we are creating sheet
                 Sheet sheet=null;
                 sheet = wb.createSheet("Attendance sheet");
+                //String date = new SimpleDateFormat("dd-MM-yyyy" , Locale.getDefault()).format(new Date());
+                //database fetch
+                database.getReference("Attendance").child("6").child("ENG").addValueEventListener(new ValueEventListener(){
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.hasChildren()){
+                            String value= (String) dataSnapshot.getValue();
+                            Toast.makeText(getApplicationContext() ,value  , Toast.LENGTH_LONG).show();
+//                            dataSnapshot.getValue();
+                            }
+
+//
+//                        String StudentName = data.getNAME();
+//                        String Semester = data.getSEMESTER();
+//                        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+//                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Name").setValue(StudentName);
+//                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Id").setValue(currentuser);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
                 //Now column and row
                 for (int i=0;i<4;i++){
                     Row row =sheet.createRow(i);

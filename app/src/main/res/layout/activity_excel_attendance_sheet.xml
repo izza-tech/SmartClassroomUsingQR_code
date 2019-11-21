@@ -9,11 +9,21 @@
     android:orientation="vertical">
 
     <EditText
+        android:id="@+id/subject"
         android:layout_width="300dp"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:hint="Enter Subject"
         android:layout_height="70dp"></EditText>
+    <Spinner
+        android:id="@+id/dropdown"
+        android:layout_marginTop="20dp"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"></Spinner>
+
     <Button
         android:id="@+id/btn_Attendance"
         android:textColor="#ffffffff"
