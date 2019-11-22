@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.zxing.WriterException;
 
 import java.io.File;
@@ -42,6 +43,7 @@ public class generate_QRcode extends AppCompatActivity {
     DatePickerDialog datePickerDialog;
     String TAG ="generateQRcode";
     EditText et1;
+    TextInputLayout n , s;
     ImageView QRimg;
     Bitmap bitmap;
     String inputvalue;
@@ -58,7 +60,8 @@ public class generate_QRcode extends AppCompatActivity {
         QRimg=(ImageView)findViewById(R.id.qrcode);
         et1=(EditText)findViewById(R.id.edittext);
         etname=(EditText)findViewById(R.id.edittextteachername);
-
+        n = (TextInputLayout) findViewById(R.id.mtName);
+        s= (TextInputLayout) findViewById(R.id.mtS);
         spinnersemester = (Spinner) findViewById(R.id.spinnersemester);
         spinnershift = (Spinner) findViewById(R.id.spinnershift);
 
@@ -66,6 +69,7 @@ public class generate_QRcode extends AppCompatActivity {
         //textView.setText(currentDateandTime);
 
         save=(Button)findViewById(R.id.btnsavetogallery);
+        save.setVisibility(View.GONE);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,13 +104,23 @@ public class generate_QRcode extends AppCompatActivity {
                 }
             }
         });
+
+        etdate=findViewById(R.id.et_date);
+
         start=(Button)findViewById(R.id.createbutton);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 postImg();
-
+                etname.setVisibility(View.GONE);
+                et1.setVisibility(View.GONE);
+                n.setVisibility(View.GONE);
+                s.setVisibility(View.GONE);
+                etdate.setVisibility(View.GONE);
+                spinnershift.setVisibility(View.GONE);
+                spinnersemester.setVisibility(View.GONE);
+                start.setVisibility(View.GONE);
                 Timer timerAsync = new Timer();
                 TimerTask timerTaskAsync = new TimerTask() {
                     @Override
@@ -122,8 +136,6 @@ public class generate_QRcode extends AppCompatActivity {
             }
         });
 
-
-        etdate=findViewById(R.id.et_date);
 
 
 
