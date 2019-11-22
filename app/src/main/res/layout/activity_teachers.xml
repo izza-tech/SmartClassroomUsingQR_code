@@ -27,6 +27,15 @@
         android:background="@drawable/roundedbutton"
         android:layout_marginTop="35dp"
         android:id="@+id/btngenerateqrcode"/>
+    <Button
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:textColor="#ffffffff"
+    android:textSize="22sp"
+    android:text="fetch attendance"
+    android:background="@drawable/roundedbutton"
+    android:layout_marginTop="35dp"
+    android:id="@+id/btngenerateattendence"/>
 
     <Button
         android:layout_height="wrap_content"

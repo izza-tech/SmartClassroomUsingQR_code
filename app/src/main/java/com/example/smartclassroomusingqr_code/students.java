@@ -117,7 +117,7 @@ public class students extends AppCompatActivity {
     }
     @SuppressWarnings("deprecation")
     public void openattendencehistory(){
-        Intent intent=new Intent (this,attendencehistory.class);
+        Intent intent=new Intent (this,ExcelAttendanceSheet.class);
         startActivity(intent);
     }
 
