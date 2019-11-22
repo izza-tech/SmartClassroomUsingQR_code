@@ -9,7 +9,8 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/subject"
+        android:id="@+id/Subject"
+        android:maxLength="3"
         android:layout_width="300dp"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"

@@ -78,8 +78,8 @@ public class ExcelAttendanceSheet extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.hasChildren()){
-//                            String value= (String) dataSnapshot.getValue();
-//                            Toast.makeText(getApplicationContext() ,value  , Toast.LENGTH_LONG).show();
+                            String value= (String) dataSnapshot.getValue();
+                            Toast.makeText(getApplicationContext() ,value  , Toast.LENGTH_LONG).show();
 //                            dataSnapshot.getValue();
                             }
 
