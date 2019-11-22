@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Editable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.formula.functions.Column;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
@@ -33,7 +35,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 
 import javax.security.auth.Subject;
@@ -41,9 +45,10 @@ import javax.security.auth.Subject;
 public class ExcelAttendanceSheet extends AppCompatActivity {
     Button btn_Attendance;
     FirebaseDatabase database;
+    ArrayList<String> list = new ArrayList<String>();
     String Semester;
     TextView txtView;
-    EditText editText_Subject,editText_Semester;
+    EditText editSubject;
     Spinner spinner;
     DatabaseReference ref;
     @Override
@@ -51,44 +56,87 @@ public class ExcelAttendanceSheet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excel_attendance_sheet);
         btn_Attendance=(Button) findViewById(R.id.btn_Attendance);
-        editText_Subject = (EditText) findViewById(R.id.subject);
-        //editText_Semester = () findViewById(R.id.semester);
+        editSubject = (EditText) findViewById(R.id.Subject);
         spinner=(Spinner) findViewById(R.id.dropdown);
-        String[] items=new String[]{"1","2","3","4","5","6","7","8"};
+        final String[] items=new String[]{"1","2","3","4","5","6","7","8"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,items);
         spinner.setAdapter(adapter);
-        Semester=spinner.getSelectedItem().toString();
         database= FirebaseDatabase.getInstance();
         ref = database.getReference("Attendance");
         btn_Attendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Workbook wb=   new HSSFWorkbook();
-                Cell cell=null;
-                CellStyle cellStyle=wb.createCellStyle();
-                cellStyle.setFillForegroundColor(HSSFColor.LIGHT_BLUE.index);
-                cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
-
-                //Now we are creating sheet
-                Sheet sheet=null;
-                sheet = wb.createSheet("Attendance sheet");
-                //String date = new SimpleDateFormat("dd-MM-yyyy" , Locale.getDefault()).format(new Date());
+                final String Subject = editSubject.getText().toString();
+                Semester = spinner.getSelectedItem().toString();
+                if (Subject.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please Enter  Subject", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    
                 //database fetch
-                database.getReference("Attendance").child("6").child("ENG").addValueEventListener(new ValueEventListener(){
+                database.getReference("Attendance").child(Semester).child(Subject.toUpperCase()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.hasChildren()){
-                            String value= (String) dataSnapshot.getValue();
-                            Toast.makeText(getApplicationContext() ,value  , Toast.LENGTH_LONG).show();
-//                            dataSnapshot.getValue();
+                        if (dataSnapshot.hasChildren()) {
+                            /////////////////////////excel sheet code/////////////////////////////////////
+                            Workbook wb = new HSSFWorkbook();
+                            Cell cell = null;
+                            CellStyle cellStyle = wb.createCellStyle();
+                            cellStyle.setFillForegroundColor(HSSFColor.LIGHT_BLUE.index);
+                            cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+
+                            //Now we are creating sheet
+                            Sheet sheet = null;
+                            sheet = wb.createSheet("Attendance sheet of " + Subject);
+
+                            ///////////////////////////////////excel sheet code//////////////////////////
+                            int rowNO = 0;
+                            for (DataSnapshot ds_date : dataSnapshot.getChildren()) {
+                                Row row = sheet.createRow(rowNO);
+                                int columnNo = 0;
+                                for (DataSnapshot ds_name : dataSnapshot.child(ds_date.getKey()).getChildren()) {
+
+                                    ////////////////////////////excel sheet code ///////////////////////////////////
+                                    cell = row.createCell(columnNo);
+                                    if (columnNo == 0) {
+                                        cell.setCellValue(ds_date.getKey());
+                                        columnNo++;
+                                        cell = row.createCell(columnNo);
+                                        cell.setCellValue(ds_name.getKey());
+                                    } else {
+                                        cell.setCellValue(ds_name.getKey());
+                                    }
+                                    columnNo++;
+                                }
+                                rowNO++;
+                            }
+                            ////////////////////////////excel sheet code ///////////////////////////////////
+
+
+                            File file = new File(getExternalFilesDir(null), Subject.toUpperCase() + " Attendance.xls");
+                            FileOutputStream outputStream = null;
+
+                            try {
+                                outputStream = new FileOutputStream(file);
+                                wb.write(outputStream);
+                                Toast.makeText(getApplicationContext(), "Attendance Downloaded, Check App folder", Toast.LENGTH_LONG).show();
+                            } catch (java.io.IOException e) {
+                                e.printStackTrace();
+
+                                Toast.makeText(getApplicationContext(), "Sorry, Try Again", Toast.LENGTH_LONG).show();
+                                try {
+                                    outputStream.close();
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
                             }
 
-//
-//                        String StudentName = data.getNAME();
-//                        String Semester = data.getSEMESTER();
-//                        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-//                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Name").setValue(StudentName);
-//                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Id").setValue(currentuser);
+
+                            ////////////////////////////excel sheet code ///////////////////////////////////
+
+                        } else {
+                            Toast.makeText(getApplicationContext(), "No Attendance Found", Toast.LENGTH_LONG).show();
+                        }
                     }
 
                     @Override
@@ -97,52 +145,10 @@ public class ExcelAttendanceSheet extends AppCompatActivity {
                     }
                 });
 
-                //Now column and row
-                for (int i=0;i<4;i++){
-                    Row row =sheet.createRow(i);
-                    cell=row.createCell(i);
-                    cell.setCellValue(i);
-//                    cell.setCellStyle(cellStyle);
-
-//                    cell=row.createCell(i);
-//                    cell.setCellValue(i);
-//                    cell.setCellStyle(cellStyle);
-
-                }
-//                Row row =sheet.createRow(8);
-//
-
-//                cell=row.createCell(0,0);
-//                cell.setCellValue("Name");
-//                cell.setCellStyle(cellStyle);
-//
-//                cell=row.createCell(1,4);
-//                cell.setCellValue("Number");
-//                cell.setCellStyle(cellStyle);
-//
-//                sheet.setColumnWidth(0,(10*200));
-//                sheet.setColumnWidth(1,(10*200));
-
-                File file = new File(getExternalFilesDir(null),"plik.xls");
-                FileOutputStream outputStream =null;
-                File dir = Environment.getExternalStorageDirectory();
-                String path = dir.getAbsolutePath();
+            }
 
 
-                try {
-                    outputStream=new FileOutputStream(file);
-                    wb.write(outputStream);
-                    Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_LONG).show();
-                } catch (java.io.IOException e) {
-                    e.printStackTrace();
 
-                    Toast.makeText(getApplicationContext(),"NO OK",Toast.LENGTH_LONG).show();
-                    try {
-                        outputStream.close();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                }
             }
         });
     }
