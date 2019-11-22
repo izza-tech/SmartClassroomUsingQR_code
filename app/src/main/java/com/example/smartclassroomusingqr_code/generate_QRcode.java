@@ -100,13 +100,19 @@ public class generate_QRcode extends AppCompatActivity {
                 }
             }
         });
+
+        etdate=findViewById(R.id.et_date);
         start=(Button)findViewById(R.id.createbutton);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 postImg();
-
+                etname.setVisibility(View.GONE);
+                etdate.setVisibility(View.GONE);
+                et1.setVisibility(View.GONE);
+                spinnersemester.setVisibility(View.GONE);
+                spinnershift.setVisibility(View.GONE);
                 Timer timerAsync = new Timer();
                 TimerTask timerTaskAsync = new TimerTask() {
                     @Override
@@ -123,7 +129,6 @@ public class generate_QRcode extends AppCompatActivity {
         });
 
 
-        etdate=findViewById(R.id.et_date);
 
 
 

@@ -72,6 +72,7 @@ public class ExcelAttendanceSheet extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please Enter  Subject", Toast.LENGTH_LONG).show();
                 }
                 else {
+                    
                 //database fetch
                 database.getReference("Attendance").child(Semester).child(Subject.toUpperCase()).addValueEventListener(new ValueEventListener() {
                     @Override
