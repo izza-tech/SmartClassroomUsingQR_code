@@ -15,7 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewNotifications"></activity>
+        <activity android:name=".ShowQuizResult"></activity>
+        <activity android:name=".SelectSubjectForResult" />
+        <activity android:name=".QuizResult" />
+        <activity android:name=".PerformQuiz" />
+        <activity android:name=".SelectQuizSubject" />
+        <activity android:name=".GenerateMcqs" />
+        <activity android:name=".CreateQuiz" />
+        <activity android:name=".ViewNotifications" />
         <activity android:name=".ScanQuiz" />
         <activity android:name=".AttemptQuiz" />
         <activity android:name=".GenerateQuiz" />
@@ -62,9 +69,8 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".admin"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".Quiz.QuizMainActivity" />
-        <activity android:name=".Quiz.QuizResultActivity" />
+            android:parentActivityName=".MainActivity" /> <!-- <activity android:name=".Quiz.QuizMainActivity" /> -->
+        <!-- <activity android:name=".Quiz.QuizResultActivity" /> -->
         <activity
             android:name=".studentlogin_validation"
             android:parentActivityName=".MainActivity" />

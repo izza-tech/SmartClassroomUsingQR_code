@@ -77,6 +77,15 @@
         android:background="@drawable/roundedbutton"
         android:layout_marginTop="25dp"
         android:id="@+id/btnreplyqueries"/>
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="#ffffffff"
+        android:textSize="22sp"
+        android:text="Quiz Result"
+        android:background="@drawable/roundedbutton"
+        android:layout_marginTop="25dp"
+        android:id="@+id/btnquizresult"/>
 
     <Button
         android:layout_height="wrap_content"
