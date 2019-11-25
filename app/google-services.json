@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "812987722980-puki8dmqs083ovfjk77ia20vd7iqqqr5.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.quizmodule",
-            "certificate_hash": "883f1fddc4a136eb3ae4e86f85b2592903ab1107"
-          }
-        },
-        {
           "client_id": "812987722980-g8q6uecil5hua7gif739v1ts3gidbag0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -59,14 +51,6 @@
         }
       },
       "oauth_client": [
-        {
-          "client_id": "812987722980-sfe7l1k1ks30rl7k6s1pi1qkqukqet2i.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.smartclassroomusingqr_code",
-            "certificate_hash": "94d4ec20b0326968b84dc86e59af1337211c0634"
-          }
-        },
         {
           "client_id": "812987722980-v4krgmd2mkng9jcj7f9hoh1q7sqbii62.apps.googleusercontent.com",
           "client_type": 1,
