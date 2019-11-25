@@ -103,7 +103,10 @@ public class scanqrcode extends AppCompatActivity {
                                     }
                                 });
                             }
-
+                            else
+                                {
+                                Toast.makeText(getApplicationContext(), "Please complete your profile!", Toast.LENGTH_LONG).show();
+                                }
 
                             UploadTask uploadTask = mref.putBytes(uemail.getBytes());
                             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
