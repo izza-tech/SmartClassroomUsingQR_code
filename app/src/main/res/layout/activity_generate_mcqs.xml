@@ -72,7 +72,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="0dp">
         <TextView
             android:id="@+id/txtQuestionNo"
             android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
 
     </LinearLayout>
     <LinearLayout
-        android:paddingTop="5dp"
+        android:paddingTop="0dp"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:padding="8dp"
             android:orientation="vertical">
 
@@ -178,7 +178,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp"
+        android:paddingTop="0dp"
         android:paddingLeft="70dp"
         android:layout_marginTop="20dp">
 
@@ -187,7 +187,7 @@
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="0dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/roundedbutton"
 

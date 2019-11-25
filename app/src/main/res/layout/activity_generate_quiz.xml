@@ -221,7 +221,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/roundedbutton"
             android:textColor="#ffffff"
-            android:text="save to gallery"
+            android:text="create mcq's"
             android:layout_below="@+id/edittext"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
