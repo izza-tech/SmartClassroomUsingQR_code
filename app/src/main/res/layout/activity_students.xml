@@ -43,6 +43,16 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Perform MCQ's"
+        android:id="@+id/btnformmcq"
+        android:textSize="22sp"
+        android:textColor="#ffffffff"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/roundedbutton"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="view attendence history"
         android:textSize="22sp"
         android:id="@+id/btnviewattendencehistory"

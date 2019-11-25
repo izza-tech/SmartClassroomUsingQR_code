@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#00b0ff</color>
-    <color name="colorPrimaryDark">#00b0ff</color>
+    <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#00b0ff</color>
     <color name="colorAccentlight">#FF6F00</color>
     <color name="colorsilver">#E7E3E0</color>
@@ -9,6 +9,8 @@
     <color name="colorbule1">#008DFF</color>
     <color name="bg_splash">#82CAFF</color>
     <color name="white">#ffffff</color>
+    <color name="Blue">#808080</color>
+
 
     <color name="my_spinner_text_color">#4B87EB</color>
 
