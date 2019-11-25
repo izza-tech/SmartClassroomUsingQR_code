@@ -95,6 +95,7 @@
                 android:layout_toRightOf="@id/mobileprofile"
                 android:textColorHint="@color/colorblue"
                 android:focusable="true"
+                android:inputType="number"
                 android:id="@+id/profmobile"
                 android:focusableInTouchMode="true"
                 android:hint="Enter Your Mobile Number"/>
@@ -189,6 +190,8 @@
                 android:layout_toRightOf="@id/semesterprofile"
                 android:textColorHint="@color/colorblue"
                 android:focusable="true"
+                android:inputType="number"
+                android:maxLength="1"
                 android:id="@+id/profsemester"
                 android:focusableInTouchMode="true"
                 android:hint="Enter Your Current Semester"/>
