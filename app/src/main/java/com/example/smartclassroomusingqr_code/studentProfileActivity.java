@@ -34,7 +34,7 @@ import java.util.UUID;
 
 public class studentProfileActivity extends AppCompatActivity {
 EditText pname,pmobile,pemail,paddress,pdob,psemester;
-Button pconfirm;
+Button pconfirm , pback;
 ImageView pimage;
 private Uri filepath;
 FirebaseDatabase database;
@@ -60,14 +60,41 @@ private StorageReference storageReference;
         pdob=(EditText)findViewById(R.id.profdob);
         psemester=(EditText)findViewById(R.id.profsemester);
         pconfirm=(Button) findViewById(R.id.profCONFIRM);
+        pback=(Button) findViewById(R.id.back);
 
+        pback.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent( studentProfileActivity.this , students.class );
+                startActivity( i );
+            }
+        } );
         database=FirebaseDatabase.getInstance();
         ref = database.getReference("Student_Profiles");
-storage=FirebaseStorage.getInstance();
-storageReference=storage.getReference();
+        storage=FirebaseStorage.getInstance();
+        storageReference=storage.getReference();
+
+        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
+        ref.child( currentuser ).addListenerForSingleValueEvent( new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    pname.setText( dataSnapshot.child("name").getValue().toString());
+                    pmobile.setText( dataSnapshot.child("mobile").getValue().toString());
+                    pemail.setText( dataSnapshot.child("email").getValue().toString());
+                    paddress.setText( dataSnapshot.child("address").getValue().toString());
+                    pdob.setText( dataSnapshot.child("dob").getValue().toString());
+                    psemester.setText( dataSnapshot.child("semester").getValue().toString());
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        } );
         }
 
     private void chooseimage() {
