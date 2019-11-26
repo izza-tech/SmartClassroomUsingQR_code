@@ -76,8 +76,8 @@ public class teacherslogin extends AppCompatActivity {
                     emailt.setError("Invalid email");
                     emailt.setFocusable(true);
                 }else {
-                    startActivity(new Intent(teacherslogin.this,teachers.class));
-                    //loginuser(EMAIL,PASSWORD);
+                    //startActivity(new Intent(teacherslogin.this,teachers.class));
+                    loginuser(EMAIL,PASSWORD);
                 }
             }
         });

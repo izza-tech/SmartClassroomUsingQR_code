@@ -89,8 +89,12 @@ public class scanqrcode extends AppCompatActivity {
                                         String StudentName = data.getNAME();
                                         String Semester = data.getSEMESTER();
                                         String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-                                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Name").setValue(StudentName);
-                                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Id").setValue(currentuser);
+                                        if (StudentName != null) {
+                                            database.getReference("Attendance").child(Semester).child(subject).child(date).child(StudentName).setValue(StudentName);
+//                                        database.getReference("Attendance").child(Semester).child(subject).child(date).child(currentuser).child("Id").setValue(currentuser);
+                                        }
+                                        else
+                                            Toast.makeText(getApplicationContext() , "Please complete your profile!" , Toast.LENGTH_LONG).show();
                                     }
 
                                     @Override
@@ -99,7 +103,10 @@ public class scanqrcode extends AppCompatActivity {
                                     }
                                 });
                             }
-
+                            else
+                                {
+                                Toast.makeText(getApplicationContext(), "Please complete your profile!", Toast.LENGTH_LONG).show();
+                                }
 
                             UploadTask uploadTask = mref.putBytes(uemail.getBytes());
                             uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

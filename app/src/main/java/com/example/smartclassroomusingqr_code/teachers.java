@@ -15,7 +15,7 @@ public class teachers extends AppCompatActivity {
     private Button createquiz;
     private Button uploadlectures;
     private Button uploadassignments;
-    private Button viewdetails;
+    private Button viewdetails , fattendence;
 
     @SuppressWarnings("deprecation")
     @Override
@@ -61,6 +61,15 @@ public class teachers extends AppCompatActivity {
             public void onClick(View view) {
                 Uploadlectures();
             }
+        });
+
+        fattendence=(Button) findViewById(R.id.btngenerateattendence);
+        fattendence.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent (teachers.this,ExcelAttendanceSheet.class);
+                startActivity(intent);
+                    }
         });
 
         teacherslogout=(Button) findViewById(R.id.btnteacherslogout);

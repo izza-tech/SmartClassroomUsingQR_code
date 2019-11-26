@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CreateQuiz">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_height="250dp"
+        android:layout_width="match_parent"
+        android:padding="30dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/markedattendence"/>
+<!--    <RelativeLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingTop="10dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:padding="8dp"-->
+<!--        android:orientation="vertical">-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:text="Select Semester"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:textSize="20sp"-->
+<!--            ></TextView>-->
+<!--        <Spinner-->
+<!--            android:id="@+id/semester"-->
+<!--            android:layout_alignParentRight="true"-->
+
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content"-->
+
+<!--            android:background="@android:drawable/btn_dropdown"-->
+<!--            android:spinnerMode="dropdown"/>-->
+
+
+<!--    </RelativeLayout>-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:layout_marginTop="10dp"
+        android:padding="8dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Enter Subject Name"
+            android:layout_alignParentLeft="true"
+            android:textSize="20sp"
+            /> >
+
+        <EditText
+            android:id="@+id/txtSubject"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp" />
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_marginTop="20dp"
+        android:padding="8dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Total MCQ's"
+            android:layout_alignParentLeft="true"
+            android:textSize="20sp"
+            ></TextView>
+        <EditText
+            android:id="@+id/totalquestion"
+            android:layout_alignParentRight="true"
+            android:inputType="number"
+            android:text=""
+            android:textSize="25sp"
+
+
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingTop="20dp"
+        android:paddingLeft="70dp">
+        <Button
+            android:id="@+id/btnopen"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/roundedbutton"
+
+            android:text="Create Quiz "
+            android:textColor="#ffffffff"
+            android:textSize="22sp"
+
+            />
+    </RelativeLayout>
+
+</LinearLayout>

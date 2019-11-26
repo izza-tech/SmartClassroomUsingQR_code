@@ -8,20 +8,13 @@
     android:padding="30dp"
     tools:context=".generate_QRcode">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/qrcode"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginLeft="15dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0sp"
-        android:layout_marginBottom="15dp"
-        />
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
         android:padding="@dimen/cardview_default_radius"
+        android:id="@+id/mtName"
         android:focusableInTouchMode="true"
         android:textColorHint="@color/colorblue">
 
@@ -38,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
+        android:id="@+id/mtS"
         android:padding="@dimen/cardview_default_radius"
         android:focusableInTouchMode="true"
         android:textColorHint="@color/colorblue">
@@ -128,5 +122,9 @@ android:layout_marginTop="5dp"        />
         android:id="@+id/btnsavetogallery"
         />
 
-
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/qrcode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 </androidx.appcompat.widget.LinearLayoutCompat>

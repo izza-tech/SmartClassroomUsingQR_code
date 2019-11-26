@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class students extends AppCompatActivity {
     private Button scanQRcode,stuentslogout,accesslectures,uploadissues,viewprofile;
-    private Button attendencehistory;
+    private Button attendencehistory , mcqquiz;
     private Button attemptquiz;
 
     ArrayList<String> urls=new ArrayList<>();
@@ -41,8 +41,18 @@ public class students extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openattemptquiz();
+
+
             }
         });
+        mcqquiz = (Button) findViewById( R.id.btnformmcq);
+        mcqquiz.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent (students.this,SelectQuizSubject.class);
+                startActivity(intent);
+            }
+        } );
 
         scanQRcode=(Button) findViewById(R.id.btnscanqrcode);
         scanQRcode.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +127,7 @@ public class students extends AppCompatActivity {
     }
     @SuppressWarnings("deprecation")
     public void openattendencehistory(){
-        Intent intent=new Intent (this,attendencehistory.class);
+        Intent intent=new Intent (this,ExcelAttendanceSheet.class);
         startActivity(intent);
     }
 
