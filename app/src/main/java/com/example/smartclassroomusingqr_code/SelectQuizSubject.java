@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -26,11 +27,23 @@ public class SelectQuizSubject extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_select_quiz_subject );
 
-        txtSub = (EditText)findViewById( R.id.txtSubject );
+        txtSub = (EditText) findViewById( R.id.txtSubject );
         btnTakeQuiz=(Button)findViewById( R.id.btntakequiz );
 
 
-
+//        dref.child( "QuizInfo" ).addValueEventListener( new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if(dataSnapshot.exists()){
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        } );
         btnTakeQuiz.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
