@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".ExcelAttendanceSheet"
-    android:layout_gravity="center"
-    android:orientation="vertical">
+    tools:context=".SelectAttendance">
 
     <EditText
         android:id="@+id/Subject"
@@ -38,12 +37,11 @@
         android:id="@+id/btn_Attendance"
         android:textColor="#ffffffff"
         android:textSize="22sp"
-        android:text="Export Attendance"
+        android:text="Check Attendance"
         android:background="@drawable/roundedbutton"
         android:layout_marginTop="25dp"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_gravity="center"
         ></Button>
-
 </LinearLayout>
