@@ -42,7 +42,7 @@ public class QuizResult extends AppCompatActivity {
         final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final String uemail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         if(currentuser!=null){
-            dref.child( "Student_Profiles" ).child( currentuser ).addValueEventListener( new ValueEventListener() {
+            dref.child( "Student_Profiles" ).child( currentuser ).addListenerForSingleValueEvent( new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 profiledata data = dataSnapshot.getValue(profiledata.class);
@@ -68,9 +68,11 @@ public class QuizResult extends AppCompatActivity {
             Toast.makeText( getApplicationContext() ,"Please complete profile before performing Quiz!" ,Toast.LENGTH_LONG).show();
 
         }
+
         questions.setText( totals );
         correctAns.setText( correct );
         wrongAns.setText( wrong );
+
         btnopen.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {

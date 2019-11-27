@@ -55,7 +55,7 @@ public class PerformQuiz extends AppCompatActivity {
         question = (TextView)findViewById( R.id.txtquiztext );
         counter = (TextView)findViewById( R.id.txttimer );
 
-        dref.addValueEventListener( new ValueEventListener() {
+        dref.addListenerForSingleValueEvent( new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Intent in =getIntent();
@@ -87,6 +87,7 @@ public class PerformQuiz extends AppCompatActivity {
         questionNo.setText(String.valueOf(total));
         final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final String uemail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
         if(total>t){
 
             Intent i = new Intent( PerformQuiz.this, QuizResult.class );
@@ -101,9 +102,10 @@ public class PerformQuiz extends AppCompatActivity {
         else {
 
 //                    questionNo.setText( total );
-            dref.addValueEventListener( new ValueEventListener() {
+            dref.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists()) {
                         que = dataSnapshot.child( "QuizQuestions" ).child( quizSubject.toUpperCase() ).child( String.valueOf( total ) ).child( "question" ).getValue().toString();
                         opt1 = dataSnapshot.child( "QuizQuestions" ).child( quizSubject.toUpperCase() ).child( String.valueOf( total ) ).child( "option1" ).getValue().toString();
                         opt2 = dataSnapshot.child( "QuizQuestions" ).child( quizSubject.toUpperCase() ).child( String.valueOf( total ) ).child( "option2" ).getValue().toString();
@@ -118,7 +120,7 @@ public class PerformQuiz extends AppCompatActivity {
                         btn_d.setText( opt4 );
 //                    Toast.makeText( PerformQuiz.this, "total"+total, Toast.LENGTH_SHORT ).show();
 //                    questionNo.setText( total );
-
+                    }
                 }
 
 
