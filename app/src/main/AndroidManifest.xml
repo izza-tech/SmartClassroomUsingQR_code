@@ -20,7 +20,10 @@
         <activity android:name=".SelectSubjectForResult" />
         <activity android:name=".QuizResult" />
         <activity android:name=".PerformQuiz" />
-        <activity android:name=".SelectQuizSubject" />
+        <activity android:name=".SelectQuizSubject">
+
+        </activity>
+
         <activity android:name=".GenerateMcqs" />
         <activity android:name=".CreateQuiz" />
         <activity android:name=".ViewNotifications" />

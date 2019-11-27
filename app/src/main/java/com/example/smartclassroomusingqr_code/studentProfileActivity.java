@@ -155,14 +155,6 @@ private StorageReference storageReference;
         public void confirmprofile(View view) {
         getvalues();
         uploadimage();
-        pname.setText("");
-            pmobile.setText("");
-            pemail.setText("");
-            paddress.setText("");
-            pdob.setText("");
-            psemester.setText("");
-
-
         }
 
     private void uploadimage() {
