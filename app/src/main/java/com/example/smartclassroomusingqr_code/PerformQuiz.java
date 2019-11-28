@@ -87,7 +87,7 @@ public class PerformQuiz extends AppCompatActivity {
 
 
 
-        reverseTimer( 60, counter );
+        reverseTimer( 600, counter );
 
     }
 
