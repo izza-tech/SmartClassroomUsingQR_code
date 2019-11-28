@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -54,7 +55,10 @@ StorageReference storageReference ;
         pimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chooseimage();
+                Intent intent=new Intent();
+                intent.setType("images/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent,"select image "),230);
             }
         });
         pname=(EditText)findViewById(R.id.profnames);
@@ -73,13 +77,60 @@ StorageReference storageReference ;
                 startActivity( i );
             }
         } );
+
         database=FirebaseDatabase.getInstance();
         ref = database.getReference("Student_Profiles");
         storage=FirebaseStorage.getInstance();
         storageReference=storage.getReference();
-
         final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final String id=currentuser;
+        pconfirm.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!pname.getText().toString().isEmpty() && !pmobile.getText().toString().isEmpty()&& !pemail.getText().toString().isEmpty()&& !paddress.getText().toString().isEmpty()&& !pmobile.getText().toString().isEmpty()&& !pdob.getText().toString().isEmpty() && !filepath.getPath().isEmpty() )
+                {
+                    final String push = FirebaseDatabase.getInstance().getReference().child("Packages").push().getKey();
+                    StorageReference fileReference  = storageReference.child("images/"+ push);
+                    fileReference.putFile(filepath)
+                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    Toast.makeText(getApplicationContext(), "Uploaded", Toast.LENGTH_SHORT).show();
+                                    if(filepath!=null) {
+                                        profiledata profiledata = new profiledata();
+                                        profiledata.setID(id);
+                                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                                        while (!uriTask.isSuccessful());
+                                        Uri downloadUri = uriTask.getResult();
+                                        profiledata.setIMAGEURL(downloadUri.toString());
+                                        profiledata.setNAME(pname.getText().toString());
+                                        profiledata.setMOBILE(pmobile.getText().toString());
+                                        profiledata.setEMAIL(pemail.getText().toString());
+                                        profiledata.setADDRESS(paddress.getText().toString());
+                                        profiledata.setDOB(pdob.getText().toString());
+                                        profiledata.setSEMESTER(psemester.getText().toString());
 
+                                        ref.child(id)
+                                                .setValue(profiledata);
+                                        Toast.makeText(studentProfileActivity.this,"profile successfully saved..",Toast.LENGTH_LONG).show();
+
+                                    }
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getApplicationContext(), "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Please enter all Information", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        } );
 
         ref.child( currentuser ).addListenerForSingleValueEvent( new ValueEventListener() {
             @Override
@@ -103,129 +154,32 @@ StorageReference storageReference ;
 
             }
         } );
+
+
+
+
         }
 
-    private void chooseimage() {
-        Intent intent=new Intent();
-        intent.setType("images/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"select image "),71);
-
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-
         super.onActivityResult(requestCode, resultCode, data);
-    if (requestCode==1&&resultCode==RESULT_OK
-    &&data!=null && data.getData()!=null){
+        if (requestCode==230&&resultCode==-1
+                &&data!=null && data.getData()!=null){
 
-        filepath=data.getData();
-        try {
-          Bitmap  bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-            pimage.setImageBitmap(bitmap);
+            filepath=data.getData();
+            try {
+                Bitmap  bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                pimage.setImageBitmap(bitmap);
 
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-    }
-
-    private void getvalues() {
-        final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        final String id=currentuser;
-        final String namep =pname.getText().toString();
-        final String mobilep =  pmobile.getText().toString();
-        final String emailp = pemail.getText().toString();
-        final String addressp =   paddress.getText().toString();
-        final String dobp = pdob.getText().toString();
-        final String semesterp = psemester.getText().toString();
-         if (TextUtils.isEmpty(namep)||
-                 TextUtils.isEmpty(mobilep)||
-                 TextUtils.isEmpty(addressp)||
-                TextUtils.isEmpty(dobp)||
-                 TextUtils.isEmpty(semesterp) ||
-                 !filepath.getPath().isEmpty()
-         ){
-            Toast.makeText(studentProfileActivity.this,"please enter all fields..",Toast.LENGTH_LONG).show();
-
-        }
-        else
-        {
-
-            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-            //String push = FirebaseDatabase.getInstance().getReference().child("Student_Profiles").push().getKey();
-            StorageReference fileReference = storageReference.child("images/"+id );
-            fileReference.putFile(filepath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-               if(filepath!=null)
-               {
-                  profiledata profiledata = new profiledata();
-                  profiledata.setID(id);
-                   Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                   while (!uriTask.isSuccessful());
-                   Uri downloadUri = uriTask.getResult();
-                   profiledata.setIMAGEURL(downloadUri.toString());
-                   profiledata.setNAME(namep);
-                   profiledata.setMOBILE(mobilep);
-                   profiledata.setEMAIL(emailp);
-                   profiledata.setADDRESS(addressp);
-                   profiledata.setDOB(dobp);
-                   profiledata.setSEMESTER(semesterp);
-
-                   ref.child(id).setValue(profiledata);
-                   Toast.makeText(studentProfileActivity.this,"profile successfully saved..",Toast.LENGTH_LONG).show();
-
-               }
-                }
-            });
-//          profiledata  profiledata=new profiledata(id,namep,mobilep,emailp,addressp,dobp,semesterp);
-//          ref.child(id).setValue(profiledata);
-//            Toast.makeText(studentProfileActivity.this,"profile successfully saved..",Toast.LENGTH_LONG).show();
-
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         }
     }
-
-        public void confirmprofile(View view) {
-        getvalues();
-        uploadimage();
-        }
-
-    private void uploadimage() {
-        if (filepath!=null){
-
-            final ProgressDialog progressDialog=new ProgressDialog(this);
-            progressDialog.setTitle("UPLOADING...");
-            progressDialog.show();
-
-            StorageReference reference=storageReference.child("images/" +UUID.randomUUID().toString());
-
-            reference.putFile(filepath)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                            progressDialog.dismiss();
-                            Toast.makeText(studentProfileActivity.this,"IMAGE UPLOADED..",Toast.LENGTH_LONG).show();
-
-                        }
-                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-
-                    double progress=(100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
-                    progressDialog.setMessage("Uploaded "+(int)progress+"%");
-                }
-            });
-
-        }
-    }
-
 
 }
 

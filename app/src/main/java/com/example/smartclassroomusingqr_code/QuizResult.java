@@ -79,6 +79,7 @@ public class QuizResult extends AppCompatActivity {
 
             Intent i = new Intent( QuizResult.this,students.class );
             startActivity( i );
+
             }
         } );
     }
