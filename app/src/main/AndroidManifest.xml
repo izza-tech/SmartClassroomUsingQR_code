@@ -15,21 +15,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelectAttendance">
+        <activity android:name=".ViewStudents">
 
         </activity>
-        <activity android:name=".Student_Attendance">
-
-        </activity>
+        <activity android:name=".StudentProfileDetail" />
+        <activity android:name=".SelectAttendance" />
+        <activity android:name=".Student_Attendance" />
         <activity android:name=".ShowQuizResult" />
         <activity android:name=".ExcelAttendanceSheet" />
         <activity android:name=".SelectSubjectForResult" />
         <activity android:name=".QuizResult" />
         <activity android:name=".PerformQuiz" />
-        <activity android:name=".SelectQuizSubject">
-
-        </activity>
-
+        <activity android:name=".SelectQuizSubject" />
         <activity android:name=".GenerateMcqs" />
         <activity android:name=".CreateQuiz" />
         <activity android:name=".ViewNotifications" />
@@ -85,13 +82,11 @@
             android:name=".studentlogin_validation"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".splashh">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data

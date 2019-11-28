@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class admin extends AppCompatActivity {
     private Button managestudents;
-    private Button managefaculty,adminlogout;
+    private Button managefaculty,adminlogout , viewStudents;
     @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +37,18 @@ public class admin extends AppCompatActivity {
         adminlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent (admin.this,adminlogin.class);
+                Intent intent=new Intent (admin.this,ViewStudents.class);
                 startActivity(intent);
                 finish();
                 Toast.makeText(admin.this,"successfully logout",Toast.LENGTH_LONG).show();
+            }
+        });
+        viewStudents = (Button) findViewById(R.id.btnregisteredrstudents);
+        viewStudents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent (admin.this,ViewStudents.class);
+                startActivity(intent);
             }
         });
     }

@@ -52,9 +52,9 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Attendence_Per_Student"
+        android:text="Registered Students"
         android:textSize="22sp"
-        android:id="@+id/btnattendenceperstudents"
+        android:id="@+id/btnregisteredrstudents"
         android:textColor="#ffffffff"
         android:layout_marginTop="25dp"
         android:background="@drawable/roundedbutton"

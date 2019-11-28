@@ -8,11 +8,12 @@ public class profiledata {
     private String ADDRESS;
     private String DOB;
     private String SEMESTER;
+    private String IMAGEURL;
 
     public profiledata() {
     }
 
-    public profiledata(String ID, String NAME, String MOBILE, String EMAIL, String ADDRESS, String DOB, String SEMESTER) {
+    public profiledata(String ID, String NAME, String MOBILE, String EMAIL, String ADDRESS, String DOB, String SEMESTER, String IMAGEURL) {
         this.ID = ID;
         this.NAME = NAME;
         this.MOBILE = MOBILE;
@@ -20,6 +21,7 @@ public class profiledata {
         this.ADDRESS = ADDRESS;
         this.DOB = DOB;
         this.SEMESTER = SEMESTER;
+        this.IMAGEURL = IMAGEURL;
     }
 
     public String getID() {
@@ -76,5 +78,13 @@ public class profiledata {
 
     public void setSEMESTER(String SEMESTER) {
         this.SEMESTER = SEMESTER;
+    }
+
+    public String getIMAGEURL() {
+        return IMAGEURL;
+    }
+
+    public void setIMAGEURL(String IMAGEURL) {
+        this.IMAGEURL = IMAGEURL;
     }
 }

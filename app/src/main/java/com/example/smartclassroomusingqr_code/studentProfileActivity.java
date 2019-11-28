@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,6 +29,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
+import org.apache.poi.ss.util.ImageUtils;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -39,8 +43,8 @@ ImageView pimage;
 private Uri filepath;
 FirebaseDatabase database;
 DatabaseReference ref;
-private FirebaseStorage storage;
-private StorageReference storageReference;
+FirebaseStorage storage;
+StorageReference storageReference ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,12 +85,16 @@ private StorageReference storageReference;
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    pname.setText( dataSnapshot.child("name").getValue().toString());
-                    pmobile.setText( dataSnapshot.child("mobile").getValue().toString());
-                    pemail.setText( dataSnapshot.child("email").getValue().toString());
-                    paddress.setText( dataSnapshot.child("address").getValue().toString());
-                    pdob.setText( dataSnapshot.child("dob").getValue().toString());
-                    psemester.setText( dataSnapshot.child("semester").getValue().toString());
+                    profiledata profiledata = dataSnapshot.getValue(profiledata.class);
+                    if(profiledata != null) {
+                        pname.setText(profiledata.getNAME());
+                        pmobile.setText(profiledata.getMOBILE());
+                        pemail.setText(profiledata.getEMAIL());
+                        paddress.setText(profiledata.getADDRESS());
+                        pdob.setText(profiledata.getDOB());
+                        psemester.setText(profiledata.getSEMESTER());
+                        Picasso.get().load(profiledata.getIMAGEURL()).into(pimage);
+                    }
                 }
             }
 
@@ -101,7 +109,7 @@ private StorageReference storageReference;
         Intent intent=new Intent();
         intent.setType("images/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"select image "),1);
+        startActivityForResult(Intent.createChooser(intent,"select image "),71);
 
     }
 
@@ -118,6 +126,7 @@ private StorageReference storageReference;
           Bitmap  bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
             pimage.setImageBitmap(bitmap);
 
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -127,26 +136,56 @@ private StorageReference storageReference;
 
     private void getvalues() {
         final String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        String id=currentuser;
-        String namep =pname.getText().toString();
-        String mobilep =  pmobile.getText().toString();
-        String emailp = pemail.getText().toString();
-        String addressp =   paddress.getText().toString();
-        String dobp = pdob.getText().toString();
-        String semesterp = psemester.getText().toString();
+        final String id=currentuser;
+        final String namep =pname.getText().toString();
+        final String mobilep =  pmobile.getText().toString();
+        final String emailp = pemail.getText().toString();
+        final String addressp =   paddress.getText().toString();
+        final String dobp = pdob.getText().toString();
+        final String semesterp = psemester.getText().toString();
          if (TextUtils.isEmpty(namep)||
                  TextUtils.isEmpty(mobilep)||
                  TextUtils.isEmpty(addressp)||
                 TextUtils.isEmpty(dobp)||
-                 TextUtils.isEmpty(semesterp)){
+                 TextUtils.isEmpty(semesterp) ||
+                 !filepath.getPath().isEmpty()
+         ){
             Toast.makeText(studentProfileActivity.this,"please enter all fields..",Toast.LENGTH_LONG).show();
 
         }
         else
         {
-          profiledata  profiledata=new profiledata(id,namep,mobilep,emailp,addressp,dobp,semesterp);
-          ref.child(id).setValue(profiledata);
-            Toast.makeText(studentProfileActivity.this,"profile successfully saved..",Toast.LENGTH_LONG).show();
+
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+            //String push = FirebaseDatabase.getInstance().getReference().child("Student_Profiles").push().getKey();
+            StorageReference fileReference = storageReference.child("images/"+id );
+            fileReference.putFile(filepath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+               if(filepath!=null)
+               {
+                  profiledata profiledata = new profiledata();
+                  profiledata.setID(id);
+                   Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                   while (!uriTask.isSuccessful());
+                   Uri downloadUri = uriTask.getResult();
+                   profiledata.setIMAGEURL(downloadUri.toString());
+                   profiledata.setNAME(namep);
+                   profiledata.setMOBILE(mobilep);
+                   profiledata.setEMAIL(emailp);
+                   profiledata.setADDRESS(addressp);
+                   profiledata.setDOB(dobp);
+                   profiledata.setSEMESTER(semesterp);
+
+                   ref.child(id).setValue(profiledata);
+                   Toast.makeText(studentProfileActivity.this,"profile successfully saved..",Toast.LENGTH_LONG).show();
+
+               }
+                }
+            });
+//          profiledata  profiledata=new profiledata(id,namep,mobilep,emailp,addressp,dobp,semesterp);
+//          ref.child(id).setValue(profiledata);
+//            Toast.makeText(studentProfileActivity.this,"profile successfully saved..",Toast.LENGTH_LONG).show();
 
 
         }
