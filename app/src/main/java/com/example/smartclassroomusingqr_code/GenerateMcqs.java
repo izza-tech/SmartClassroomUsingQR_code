@@ -94,27 +94,7 @@ public class GenerateMcqs extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-//
-//
-//                if(i>=Integer.valueOf( totalQuestions)) {
-//
-//
-//                    AlertDialog.Builder dialog = new AlertDialog.Builder( GenerateMcqs.this );
-//                    dialog.setCancelable( false );
-//                    dialog.setTitle( "You Have Successfully Created Quiz" );
-//                    dialog.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int id) {
-//                            Intent i = new Intent( GenerateMcqs.this, teachers.class );
-//                            startActivity( i );
-//                        }
-//                    } );
-//
-//                    final AlertDialog alert = dialog.create();
-//                    alert.show();
-//                }
-//
-//                else {
+
 
                     setData();
 
