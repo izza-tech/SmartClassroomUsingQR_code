@@ -116,7 +116,7 @@ public class students extends AppCompatActivity {
     }
 
     private void openprofile() {
-        Intent intent=new Intent (students.this, studentProfileActivity.class);
+        Intent intent=new Intent (students.this, StudentProfileDetail.class);
         startActivity(intent);
     }
 
