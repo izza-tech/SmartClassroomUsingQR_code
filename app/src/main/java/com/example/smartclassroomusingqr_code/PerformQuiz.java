@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ import javax.xml.transform.Result;
 public class PerformQuiz extends AppCompatActivity {
     String opt1,opt2,opt3,opt4,que,ans,ans_a="a",ans_b ="b",ans_c="c",ans_d="d",totalque ,tt ;
     int totalquestion , t;
+    Button btnnext;
     TextView subject,totalQuestion,questionNo,counter,question;
     RadioButton btn_a,btn_b,btn_c,btn_d,ab;
     RadioGroup groupAB,groupCD;
@@ -50,6 +52,7 @@ public class PerformQuiz extends AppCompatActivity {
         btn_c = (RadioButton)findViewById( R.id.opt_c );
         btn_d = (RadioButton)findViewById( R.id.opt_d );
         groupAB =  (RadioGroup) findViewById(R.id.radio_ab);
+        btnnext = (Button)findViewById( R.id.btnnext );
 //        groupCD =  (RadioGroup) findViewById(R.id.radio_cd);
 
         question = (TextView)findViewById( R.id.txtquiztext );
@@ -74,9 +77,17 @@ public class PerformQuiz extends AppCompatActivity {
             }
         } );
 
+        btnnext.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateQuestion();
+
+            }
+        } );
 
 
-        reverseTimer( 60, counter );
+
+        reverseTimer( 600, counter );
 
     }
 
@@ -152,12 +163,13 @@ public class PerformQuiz extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-//                tv.setText( "Completed" );
-                Intent intent= new Intent( PerformQuiz.this, QuizResult.class );
-                intent.putExtra( "total",String.valueOf( total- 1) );
-                intent.putExtra( "correct",String.valueOf( correct ) );
-                intent.putExtra( "incorrect",String.valueOf( wrong ) );
-                startActivity( intent );
+                Intent i = new Intent( PerformQuiz.this, QuizResult.class );
+                i.putExtra( "total",String.valueOf( t ) );
+                i.putExtra( "correct",String.valueOf( correct ) );
+                i.putExtra( "wrong",String.valueOf( wrong ) );
+                i.putExtra( "quizSubject",String.valueOf( quizSubject ) );
+
+                startActivity( i );
 
 
             }
@@ -168,7 +180,6 @@ public class PerformQuiz extends AppCompatActivity {
 
 //        String selectedId = String.valueOf( groupAB.getCheckedRadioButtonId() );
         if (btn_a.isChecked()) {
-
 //            if(ans_a.equals( ans ))
 //                Toast.makeText( this, "True", Toast.LENGTH_SHORT ).show();
             if (ans_a.equals( ans )) {
@@ -178,8 +189,8 @@ public class PerformQuiz extends AppCompatActivity {
                     @Override
                     public void run() {
                         correct++;
-                        btn_a.setTextColor( Color.BLACK );
-                        updateQuestion();
+//                        btn_a.setTextColor( Color.BLACK );
+//                        updateQuestion();
 
                     }
                 }, 1000 );
@@ -206,7 +217,7 @@ public class PerformQuiz extends AppCompatActivity {
                         btn_b.setTextColor( Color.BLACK );
                         btn_c.setTextColor( Color.BLACK );
                         btn_d.setTextColor( Color.BLACK );
-                        updateQuestion();
+//                        updateQuestion();
                     }
                 },1000 );
             }
@@ -223,7 +234,7 @@ public class PerformQuiz extends AppCompatActivity {
                     public void run() {
                         correct++;
                         btn_b.setTextColor( Color.BLACK );
-                        updateQuestion();
+//                        updateQuestion();
 
                     }
                 }, 1000 );
@@ -250,7 +261,7 @@ public class PerformQuiz extends AppCompatActivity {
                         btn_b.setTextColor( Color.BLACK );
                         btn_c.setTextColor( Color.BLACK );
                         btn_d.setTextColor( Color.BLACK );
-                        updateQuestion();
+//                        updateQuestion();
                     }
                 },1000 );
             }
@@ -265,7 +276,7 @@ public class PerformQuiz extends AppCompatActivity {
                     public void run() {
                         correct++;
                         btn_c.setTextColor( Color.BLACK );
-                        updateQuestion();
+//                        updateQuestion();
 
                     }
                 }, 1000 );
@@ -292,7 +303,7 @@ public class PerformQuiz extends AppCompatActivity {
                         btn_b.setTextColor( Color.BLACK );
                         btn_c.setTextColor( Color.BLACK );
                         btn_d.setTextColor( Color.BLACK );
-                        updateQuestion();
+//                        updateQuestion();
                     }
                 },1000 );
             }
@@ -307,7 +318,7 @@ public class PerformQuiz extends AppCompatActivity {
                     public void run() {
                         correct++;
                         btn_d.setTextColor( Color.BLACK );
-                        updateQuestion();
+//                        updateQuestion();
 
                     }
                 }, 1000 );
@@ -334,7 +345,7 @@ public class PerformQuiz extends AppCompatActivity {
                         btn_b.setTextColor( Color.BLACK );
                         btn_c.setTextColor( Color.BLACK );
                         btn_d.setTextColor( Color.BLACK );
-                        updateQuestion();
+//                        updateQuestion();
                     }
                 },1000 );
             }

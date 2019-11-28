@@ -169,37 +169,53 @@
 
         </LinearLayout>
 
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="120dp"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            android:orientation="horizontal"-->
-        <!--            android:padding="5dp"-->
-        <!--            android:paddingTop="5dp">-->
-
-        <!--          -->
-
-        <!--        </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:orientation="horizontal"
             android:padding="5dp"
             android:paddingTop="5dp">
 
             <TextView
                 android:id="@+id/txttimer"
-                android:layout_width="match_parent"
-                android:layout_height="107dp"
-                android:padding="10dp"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="15dp"
                 android:text="00:00"
                 android:textAlignment="center"
                 android:textColor="#393737"
                 android:textSize="28dp" />
 
+            <Button
+                android:id="@+id/btnnext"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/roundedbutton"
+                android:layout_marginLeft="100dp"
+                android:text=">"
+                android:textColor="#ffffffff"
+                android:textSize="22sp"
+
+                />
+
+
         </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:padding="5dp"-->
+<!--            android:paddingTop="5dp">-->
+
+<!--           -->
+<!--        </LinearLayout>-->
 
     </LinearLayout>
 
