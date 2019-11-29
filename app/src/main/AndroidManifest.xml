@@ -43,7 +43,9 @@
         <activity android:name=".attendence" />
         <activity
             android:name=".studentProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+
+        </activity>
         <activity android:name=".ChatApp.groupchatactivity" />
         <activity android:name=".teacherActivity" />
         <activity

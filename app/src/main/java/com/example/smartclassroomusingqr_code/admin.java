@@ -55,6 +55,7 @@ public class admin extends AppCompatActivity {
 
     private void openfragmentacivity() {
         Intent intent=new Intent (this,fragmentActivity.class);
+
         startActivity(intent);
     }
 
