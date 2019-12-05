@@ -12,7 +12,8 @@ import java.util.ArrayList;
 
 public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.AttendanceViewHolder> {
     private ArrayList<String> data ;
-    public AttendanceAdapter(ArrayList<String> data){
+    public AttendanceAdapter(ArrayList<String> data)
+    {
         this.data=data;
     }
     @NonNull

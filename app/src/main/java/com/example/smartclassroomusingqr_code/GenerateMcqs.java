@@ -111,7 +111,7 @@ public class GenerateMcqs extends AppCompatActivity {
                 String opt4=option4.getText().toString();
                 if(ques.isEmpty())
                 {
-                    question.setError( "Please the question.?" );
+                    question.setError( "Please enter the question.?" );
                 }
                else if(opt1.isEmpty())
                 {
