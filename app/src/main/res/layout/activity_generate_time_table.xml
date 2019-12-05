@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GenerateTimeTable"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="285dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:text=" " />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:text="Monday"
+                android:textSize="8dp" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:text="Tuesday"
+                android:textSize="8dp" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:text="Wednesday"
+                android:textSize="8dp" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:text="Thursday"
+                android:textSize="8dp" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:text="Friday"
+                android:textSize="8dp" />
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimary"
+                android:paddingTop="20dp"
+                android:text="8:00-9:15" />
+
+            <EditText
+                android:id="@+id/edt1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimary"
+                android:paddingTop="20dp"
+                android:text="9:25-10:40" />
+
+            <EditText
+                android:id="@+id/edt6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt7"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt8"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt9"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt10"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimary"
+                android:paddingTop="20dp"
+                android:text="10:50-12:05" />
+
+            <EditText
+                android:id="@+id/edt11"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt12"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt13"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt14"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt15"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@color/colorPrimary"
+                android:paddingTop="20dp"
+                android:text="12:15-1:30" />
+
+            <EditText
+                android:id="@+id/edt16"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt17"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt18"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt19"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+
+            <EditText
+                android:id="@+id/edt20"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:maxLines="3"
+                android:text=" "
+                android:textSize="8dp" />
+        </TableRow>
+
+    </TableLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Timetable"
+        android:layout_gravity="center"
+        android:id="@+id/btnCreateTime"/>
+</LinearLayout>
