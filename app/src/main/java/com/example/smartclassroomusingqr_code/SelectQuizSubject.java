@@ -49,26 +49,7 @@ public class SelectQuizSubject extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,QuizSubject);
         txtSub.setAdapter(adapter );
 
-//        txtSub.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                if (parent.getItemAtPosition( position ).equals( "ABC" ))
-//                {
-//
-//                }
-//                else {
-//                    String item = parent.getItemAtPosition( position ).toString();
-//                    Toast.makeText( SelectQuizSubject.this, "item"+item, Toast.LENGTH_SHORT ).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        } );
         retrivedata();
-
 
 
 

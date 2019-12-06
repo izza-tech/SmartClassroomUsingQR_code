@@ -56,7 +56,7 @@ public class registeration extends AppCompatActivity {
         regbutton = (Button) findViewById(R.id.btnreg);
 
 
-       mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Registering Student...");
 

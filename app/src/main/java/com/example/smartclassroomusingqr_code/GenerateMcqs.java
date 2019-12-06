@@ -141,6 +141,8 @@ public class GenerateMcqs extends AppCompatActivity {
 
                     String correct=rightans.getSelectedItem().toString();
 
+
+
                     //Save Data to Firebase
 //                    dref.child("QuizQuestions").child( subject ).child("total").setValue( totalquestion );
 //                    Toast.makeText( GenerateMcqs.this, "value"+i, Toast.LENGTH_SHORT ).show();

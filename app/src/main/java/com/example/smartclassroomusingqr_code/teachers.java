@@ -12,7 +12,7 @@ public class teachers extends AppCompatActivity {
     private Button generateqrcode;
     private Button teacherslogout;
     private Button replyqueries;
-    private Button createquiz;
+    private Button createquiz, quizResult;
     private Button uploadlectures;
     private Button uploadassignments;
     private Button viewdetails , fattendence;
@@ -44,6 +44,14 @@ public class teachers extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 opengeneratequiz();
+            }
+        });
+
+        quizResult=(Button) findViewById(R.id.btnquizresult);
+        quizResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                quizResult();
             }
         });
 
@@ -97,6 +105,10 @@ public class teachers extends AppCompatActivity {
     private void opengeneratequiz() {
         Intent intent=new Intent (this,GenerateQuiz.class);
         startActivity(intent);
+    }
+    private void quizResult(){
+        Intent intent = new Intent( teachers.this, SelectResultSubject.class );
+        startActivity( intent );
     }
 
     private void openreplyqueries() {
