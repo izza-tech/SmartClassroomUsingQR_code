@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class admin extends AppCompatActivity {
-    private Button managestudents;
+    private Button managestudents , manageClasses;
     private Button managefaculty,adminlogout , viewStudents;
     @SuppressWarnings("deprecation")
     @Override
@@ -32,6 +32,15 @@ public class admin extends AppCompatActivity {
                 openmanagefaculty();
             }
         });
+
+        manageClasses = (Button) findViewById( R.id.btntimetable );
+        manageClasses.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent( admin.this , SelectSemesterForTimeTable.class );
+                startActivity( i1 );
+            }
+        } );
 
         adminlogout=(Button) findViewById(R.id.btnadminlogout);
         adminlogout.setOnClickListener(new View.OnClickListener() {

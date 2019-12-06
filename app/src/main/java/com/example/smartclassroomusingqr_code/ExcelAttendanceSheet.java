@@ -3,6 +3,9 @@ package com.example.smartclassroomusingqr_code;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Editable;
@@ -129,6 +132,19 @@ public class ExcelAttendanceSheet extends AppCompatActivity {
                                 } catch (IOException ex) {
                                     ex.printStackTrace();
                                 }
+                            }
+                           // preview excel
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setDataAndType( Uri.fromFile(file),"application/vnd.ms-excel");
+                            startActivity(intent);
+
+                            try {
+                                startActivity(intent);
+                            }
+                            catch (ActivityNotFoundException e) {
+                                Toast.makeText(ExcelAttendanceSheet.this,
+                                        "No Application Available to View PDF",
+                                        Toast.LENGTH_SHORT).show();
                             }
 
 

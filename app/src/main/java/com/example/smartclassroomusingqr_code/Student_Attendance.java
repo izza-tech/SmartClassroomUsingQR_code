@@ -65,8 +65,8 @@ public class Student_Attendance extends AppCompatActivity {
                     for (DataSnapshot ds_date : dataSnapshot.getChildren()) {
                         for (DataSnapshot ds_name : dataSnapshot.child(ds_date.getKey()).getChildren()) {
                             if(dataSnapshot.exists()) {
-                                if (ds_name.getKey().equals("hh")) {
-                                    date.add(ds_date.getKey());
+                                if (ds_name.getKey().equals(userName)) {
+                                    date.add(ds_date.getKey() + " present");
                                     // Toast.makeText(getApplicationContext(), "User Found", Toast.LENGTH_LONG).show();
                                     recyclerView.setAdapter(new AttendanceAdapter(date));
                                 }

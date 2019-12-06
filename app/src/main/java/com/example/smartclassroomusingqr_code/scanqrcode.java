@@ -77,7 +77,7 @@ public class scanqrcode extends AppCompatActivity {
 
 
                     public void onClick(View v) {
-                        if(Integer.valueOf(t)<9) {
+                        if(Integer.valueOf(t)<10) {
                             // StorageReference childs=mref.child("attend/");
                             final String uemail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
                             if(currentuser != null) {

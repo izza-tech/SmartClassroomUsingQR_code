@@ -18,6 +18,14 @@
         android:textAlignment="center"
         android:text="Teachers_Portal"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
     <Button
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -25,8 +33,19 @@
         android:textSize="22sp"
         android:text="generate qr_code"
         android:background="@drawable/roundedbutton"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/btngenerateqrcode"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="view timetable"
+        android:id="@+id/btnTimeTable"
+        android:textSize="22sp"
+        android:textColor="#ffffffff"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/roundedbutton"
+        />
+
     <Button
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
@@ -34,7 +53,7 @@
     android:textSize="22sp"
     android:text="fetch attendance"
     android:background="@drawable/roundedbutton"
-    android:layout_marginTop="35dp"
+    android:layout_marginTop="15dp"
     android:id="@+id/btngenerateattendence"/>
 
     <Button
@@ -44,7 +63,7 @@
         android:textSize="22sp"
         android:text="create quiz"
         android:background="@drawable/roundedbutton"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/btncreatequiz"/>
 
     <Button
@@ -54,7 +73,7 @@
         android:textSize="22sp"
         android:text="Quiz Result"
         android:background="@drawable/roundedbutton"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/btnquizresult"/>
 
     <Button
@@ -64,7 +83,7 @@
         android:textSize="22sp"
         android:text="view details"
         android:background="@drawable/roundedbutton"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/btnviewdetails"/>
 
     <Button
@@ -74,7 +93,7 @@
         android:textSize="22sp"
         android:text="upload lectures"
         android:background="@drawable/roundedbutton"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/btnuploadlectures"/>
 
     <Button
@@ -84,7 +103,7 @@
         android:textSize="22sp"
         android:text="upload Assignments"
         android:background="@drawable/roundedbutton"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/btnUploadAssignments"/>
 
     <Button
@@ -94,7 +113,7 @@
         android:textSize="22sp"
         android:text="Reply Queries"
         android:background="@drawable/roundedbutton"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/btnreplyqueries"/>
 
 
@@ -105,7 +124,9 @@
         android:textSize="22sp"
         android:text="Logout"
         android:background="@drawable/roundedbutton"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/btnteacherslogout"/>
+    </LinearLayout>
+    </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

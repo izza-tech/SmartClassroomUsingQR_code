@@ -32,9 +32,9 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Manage Classes"
+        android:text="Generate Timetable"
         android:textSize="22sp"
-        android:id="@+id/btnmanageclasses"
+        android:id="@+id/btntimetable"
         android:textColor="#ffffffff"
         android:layout_marginTop="25dp"
         android:background="@drawable/roundedbutton"

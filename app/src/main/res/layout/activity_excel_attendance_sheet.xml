@@ -38,7 +38,7 @@
         android:id="@+id/btn_Attendance"
         android:textColor="#ffffffff"
         android:textSize="22sp"
-        android:text="Export Attendance"
+        android:text="Preview/Export Attendance"
         android:background="@drawable/roundedbutton"
         android:layout_marginTop="25dp"
         android:layout_width="300dp"

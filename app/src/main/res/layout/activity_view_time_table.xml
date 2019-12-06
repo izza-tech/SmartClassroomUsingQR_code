@@ -70,7 +70,8 @@
                 android:background="@drawable/border"
                 android:maxLines="3"
                 android:text=" "
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark"/>
 
             <TextView
                 android:id="@+id/edt2"
@@ -78,7 +79,8 @@
                 android:layout_height="60dp"
                 android:maxLines="3"
                 android:text=" "
-                android:textSize="8dp"
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark"
                 android:background="@drawable/border"/>
 
             <TextView
@@ -87,7 +89,8 @@
                 android:layout_height="60dp"
                 android:maxLines="3"
                 android:text=" "
-                android:textSize="8dp"
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark"
                 android:background="@drawable/border"/>
 
             <TextView
@@ -97,7 +100,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:id="@+id/edt5"
@@ -106,7 +110,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark"/>
         </TableRow>
 
         <TableRow android:layout_width="match_parent">
@@ -124,7 +129,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark"/>
 
             <TextView
                 android:id="@+id/edt7"
@@ -133,7 +139,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark"/>
 
             <TextView
                 android:id="@+id/edt8"
@@ -142,7 +149,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:id="@+id/edt9"
@@ -151,7 +159,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:id="@+id/edt10"
@@ -160,7 +169,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark" />
         </TableRow>
 
         <TableRow android:layout_width="match_parent">
@@ -179,7 +189,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:id="@+id/edt12"
@@ -188,7 +199,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:id="@+id/edt13"
@@ -197,7 +209,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:id="@+id/edt14"
@@ -206,7 +219,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:id="@+id/edt15"
@@ -215,7 +229,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark"/>
         </TableRow>
 
         <TableRow android:layout_width="match_parent"
@@ -235,7 +250,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark" />
 
             <TextView
                 android:id="@+id/edt17"
@@ -244,7 +260,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark"/>
 
             <TextView
                 android:id="@+id/edt18"
@@ -253,7 +270,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark"/>
 
             <TextView
                 android:id="@+id/edt19"
@@ -262,7 +280,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark"/>
 
             <TextView
                 android:id="@+id/edt20"
@@ -271,7 +290,8 @@
                 android:maxLines="3"
                 android:text=" "
                 android:background="@drawable/border"
-                android:textSize="8dp" />
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark" />
         </TableRow>
 
     </TableLayout>

@@ -52,30 +52,30 @@ public class ViewTimeTable extends AppCompatActivity {
         b19 = (TextView) findViewById(R.id.edt19);
         b20 = (TextView) findViewById(R.id.edt20);
 
-        dref.child("Time_Table").child(Semester).addValueEventListener(new ValueEventListener() {
+        dref.child("Time_Table").child( Semester ).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    b1.setText(dataSnapshot.child("1").getValue().toString());
-                    b2.setText(dataSnapshot.child("2").getValue().toString());
-                    b3.setText(dataSnapshot.child("3").getValue().toString());
-                    b4.setText(dataSnapshot.child("4").getValue().toString());
-                    b5.setText(dataSnapshot.child("5").getValue().toString());
-                    b6.setText(dataSnapshot.child("6").getValue().toString());
-                    b7.setText(dataSnapshot.child("7").getValue().toString());
-                    b8.setText(dataSnapshot.child("8").getValue().toString());
-                    b9.setText(dataSnapshot.child("9").getValue().toString());
-                    b10.setText(dataSnapshot.child("10").getValue().toString());
-                    b11.setText(dataSnapshot.child("11").getValue().toString());
-                    b12.setText(dataSnapshot.child("12").getValue().toString());
-                    b13.setText(dataSnapshot.child("13").getValue().toString());
-                    b14.setText(dataSnapshot.child("14").getValue().toString());
-                    b15.setText(dataSnapshot.child("15").getValue().toString());
-                    b16.setText(dataSnapshot.child("16").getValue().toString());
-                    b17.setText(dataSnapshot.child("17").getValue().toString());
-                    b18.setText(dataSnapshot.child("18").getValue().toString());
-                    b19.setText(dataSnapshot.child("19").getValue().toString());
-                    b20.setText(dataSnapshot.child("20").getValue().toString());
+                    b1.setText(dataSnapshot.child("1").getValue().toString()+"");
+                    b2.setText(dataSnapshot.child("2").getValue().toString()+"");
+                    b3.setText(dataSnapshot.child("3").getValue().toString()+"");
+                    b4.setText(dataSnapshot.child("4").getValue().toString()+"");
+                    b5.setText(dataSnapshot.child("5").getValue().toString()+"");
+                    b6.setText(dataSnapshot.child("6").getValue().toString()+"");
+                    b7.setText(dataSnapshot.child("7").getValue().toString()+"");
+                    b8.setText(dataSnapshot.child("8").getValue().toString()+"");
+                    b9.setText(dataSnapshot.child("9").getValue().toString()+"");
+                    b10.setText(dataSnapshot.child("10").getValue().toString()+"");
+                    b11.setText(dataSnapshot.child("11").getValue().toString()+"");
+                    b12.setText(dataSnapshot.child("12").getValue().toString()+"");
+                    b13.setText(dataSnapshot.child("13").getValue().toString()+"");
+                    b14.setText(dataSnapshot.child("14").getValue().toString()+"");
+                    b15.setText(dataSnapshot.child("15").getValue().toString()+"");
+                    b16.setText(dataSnapshot.child("16").getValue().toString()+"");
+                    b17.setText(dataSnapshot.child("17").getValue().toString()+"");
+                    b18.setText(dataSnapshot.child("18").getValue().toString()+"");
+                    b19.setText(dataSnapshot.child("19").getValue().toString()+"");
+                    b20.setText(dataSnapshot.child("20").getValue().toString()+"");
 
 
                 }
@@ -93,7 +93,7 @@ public class ViewTimeTable extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(ViewTimeTable.this , ViewTimeTableforSemester.class);
+            Intent intent = new Intent(ViewTimeTable.this , teachers.class);
             startActivity(intent);
             finish();
             }

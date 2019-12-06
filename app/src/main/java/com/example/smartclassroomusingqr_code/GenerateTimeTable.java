@@ -2,8 +2,15 @@ package com.example.smartclassroomusingqr_code;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +29,7 @@ public class GenerateTimeTable extends AppCompatActivity {
     EditText b1 ,b2 ,b3, b4, b5, b6, b7, b8, b9, b10;
     EditText b11 ,b12 ,b13, b14, b15, b16, b17, b18, b19, b20;
     Button create;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +82,7 @@ public class GenerateTimeTable extends AppCompatActivity {
                 dref.child("Time_Table").child(Semester ).child( "18" ).setValue( b18.getText().toString());
                 dref.child("Time_Table").child(Semester ).child( "19" ).setValue( b19.getText().toString());
                 dref.child("Time_Table").child(Semester ).child( "20" ).setValue( b20.getText().toString());
+
                 Toast.makeText(getApplicationContext() , "Timetable created" , Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(GenerateTimeTable.this , SelectSemesterForTimeTable.class);
                 startActivity(intent);
@@ -81,5 +90,10 @@ public class GenerateTimeTable extends AppCompatActivity {
             }
         });
 
+
+
     }
+
+
+
 }
