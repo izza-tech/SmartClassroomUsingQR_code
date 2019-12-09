@@ -33,6 +33,9 @@ public class ViewStudentAdapter extends RecyclerView.Adapter<ViewStudentAdapter.
         holder.stMobile.setText(profiledata.get(position).getMOBILE());
         holder.stEmail.setText(profiledata.get(position).getEMAIL());
         holder.stName.setText(profiledata.get(position).getNAME());
+        holder.stAddress.setText( profiledata.get( position ).getADDRESS() );
+        holder.stDob.setText( profiledata.get( position ).getDOB() );
+
     }
 
     @Override
@@ -42,7 +45,7 @@ public class ViewStudentAdapter extends RecyclerView.Adapter<ViewStudentAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView studentImage;
-        TextView stName,stMobile,stEmail,stSemester;
+        TextView stName,stMobile,stEmail,stSemester,stAddress,stDob;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             studentImage = itemView.findViewById(R.id.imgProfile);
@@ -50,6 +53,9 @@ public class ViewStudentAdapter extends RecyclerView.Adapter<ViewStudentAdapter.
             stSemester = itemView.findViewById(R.id.stSemester);
             stMobile = itemView.findViewById(R.id.stMobile);
             stEmail = itemView.findViewById(R.id.stEmail);
+            stAddress = itemView.findViewById( R.id.stAddress );
+            stDob = itemView.findViewById( R.id.stDob );
+
         }
     }
 }

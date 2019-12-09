@@ -63,7 +63,7 @@ public class students extends AppCompatActivity {
         dref.child( "Time_Table" ).addListenerForSingleValueEvent( new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getChildrenCount()==1){
+                if (dataSnapshot.getChildrenCount()==8){
                     generateAlert();
                 }
 
@@ -78,29 +78,19 @@ public class students extends AppCompatActivity {
         } );
 
 
-        attemptquiz=(Button) findViewById(R.id.btnscanforquiz);
-        attemptquiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openattemptquiz();
-
-
-            }
-        });
-        mcqquiz = (Button) findViewById( R.id.btnformmcq);
-        mcqquiz.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent (students.this,SelectQuizSubject.class);
-                startActivity(intent);
-            }
-        } );
-
         timetable = (Button) findViewById( R.id.btnTimeTable );
         timetable.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent( students.this , ViewTimeTableforSemester.class );
+                startActivity( i );
+            }
+        } );
+        attemptquiz = (Button)findViewById( R.id.btncheckquiz );
+        attemptquiz.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent( students.this , StudentQuizSection.class );
                 startActivity( i );
             }
         } );
@@ -161,10 +151,7 @@ public class students extends AppCompatActivity {
         });
     }
 
-    private void openattemptquiz() {
-        Intent intent=new Intent (students.this, ScanQuiz.class);
-        startActivity(intent);
-    }
+
 
     private void openprofile() {
         Intent intent=new Intent (students.this, StudentProfileDetail.class);
@@ -199,7 +186,7 @@ public class students extends AppCompatActivity {
         PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(100,PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID);
-        builder.setSmallIcon(R.drawable.notification_icon);
+        builder.setSmallIcon(R.drawable.ic_add_alert_black_24dp);
         builder.setContentTitle("TimeTable Alert");
         builder.setContentText("Kindly check TimeTable");
         builder.setAutoCancel(true);

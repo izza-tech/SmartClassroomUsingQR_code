@@ -40,7 +40,7 @@ public class GenerateQuiz extends AppCompatActivity {
     Bitmap bitmapquiz;
     ImageView QRimgquiz;
     String inputvaluequiz;
-    Button startquiz,savequiz , generatemcq;
+    Button startquiz,savequiz;
     QRGEncoder qrgEncoderquiz;
     BitmapDrawable drawablequiz;
     @Override
@@ -141,18 +141,9 @@ public class GenerateQuiz extends AppCompatActivity {
             }
         });
 
-        generatemcq=(Button)findViewById(R.id.btngeneratemcq);
-        generatemcq.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent (GenerateQuiz.this,CreateQuiz.class);
-                startActivity(intent);
 
-            }
-        } );
+
         etdatequiz=findViewById(R.id.et_dateQuiz);
-
-
 
         etdatequiz.setOnClickListener(new View.OnClickListener() {
             @Override

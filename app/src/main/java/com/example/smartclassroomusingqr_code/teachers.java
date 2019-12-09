@@ -44,7 +44,7 @@ public class teachers extends AppCompatActivity {
         dref.child( "Time_Table" ).addListenerForSingleValueEvent( new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getChildrenCount()==1){
+                if (dataSnapshot.getChildrenCount()==8){
                     generateAlert();
                 }
 
@@ -89,14 +89,6 @@ public class teachers extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 opengeneratequiz();
-            }
-        });
-
-        quizResult=(Button) findViewById(R.id.btnquizresult);
-        quizResult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                quizResult();
             }
         });
 
@@ -148,13 +140,10 @@ public class teachers extends AppCompatActivity {
     }
 
     private void opengeneratequiz() {
-        Intent intent=new Intent (this,GenerateQuiz.class);
+        Intent intent=new Intent (this,TeacherGeneratQuiz.class);
         startActivity(intent);
     }
-    private void quizResult(){
-        Intent intent = new Intent( teachers.this, SelectResultSubject.class );
-        startActivity( intent );
-    }
+
 
     private void openreplyqueries() {
         Intent intent=new Intent (this,Issue_Disscusion.class);
@@ -188,7 +177,7 @@ public class teachers extends AppCompatActivity {
         PendingIntent pendingIntent = taskStackBuilder.getPendingIntent(100,PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,CHANNEL_ID);
-        builder.setSmallIcon(R.drawable.notification_icon);
+        builder.setSmallIcon(R.drawable.ic_add_alert_black_24dp);
         builder.setContentTitle("TimeTable Alert");
         builder.setContentText("Kindly check TimeTable");
         builder.setAutoCancel(true);

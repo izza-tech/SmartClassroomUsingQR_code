@@ -61,20 +61,20 @@
         android:layout_width="match_parent"
         android:textColor="#ffffffff"
         android:textSize="22sp"
-        android:text="create quiz"
+        android:text="Quiz Section"
         android:background="@drawable/roundedbutton"
         android:layout_marginTop="15dp"
         android:id="@+id/btncreatequiz"/>
 
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:textColor="#ffffffff"
-        android:textSize="22sp"
-        android:text="Quiz Result"
-        android:background="@drawable/roundedbutton"
-        android:layout_marginTop="15dp"
-        android:id="@+id/btnquizresult"/>
+<!--    <Button-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:textColor="#ffffffff"-->
+<!--        android:textSize="22sp"-->
+<!--        android:text="Quiz Result"-->
+<!--        android:background="@drawable/roundedbutton"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:id="@+id/btnquizresult"/>-->
 
     <Button
         android:layout_height="wrap_content"

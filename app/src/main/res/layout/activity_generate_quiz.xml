@@ -214,20 +214,7 @@
                 android:textSize="15sp"
                 android:id="@+id/btnquizsavetogallery"
                 />
-            <Button
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/roundedbutton"
-            android:textColor="#ffffff"
-            android:text="create mcq's"
-            android:layout_below="@+id/edittext"
-            android:layout_gravity="center"
-            android:layout_centerHorizontal="true"
-            android:textSize="15sp"
-            android:id="@+id/btngeneratemcq"
-            />
+
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
