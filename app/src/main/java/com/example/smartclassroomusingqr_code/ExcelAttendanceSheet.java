@@ -2,6 +2,7 @@ package com.example.smartclassroomusingqr_code;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -134,9 +135,21 @@ public class ExcelAttendanceSheet extends AppCompatActivity {
                                 }
                             }
                            // preview excel
+//                            Intent intent = new Intent(Intent.ACTION_VIEW);
+//                            intent.setDataAndType( Uri.fromFile(file),"application/vnd.ms-excel");
+//                            startActivity(intent);
                             Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setDataAndType( Uri.fromFile(file),"application/vnd.ms-excel");
-                            startActivity(intent);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+// New Approach
+                            Uri apkURI = FileProvider.getUriForFile(
+                                    getApplicationContext(),
+                                    getApplicationContext().getApplicationContext()
+                                            .getPackageName() + ".provider", file);
+                            intent.setDataAndType(apkURI, "application/vnd.ms-excel");
+                            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+// End New Approach
+                            getApplicationContext().startActivity(intent);
 
                             try {
                                 startActivity(intent);

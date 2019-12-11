@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class studet_details extends AppCompatActivity {
-Button studentissues;
+Button studentissues,studendetail ;
     @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,11 +16,19 @@ Button studentissues;
         setContentView(R.layout.activity_studet_details);
 
 
+        studendetail=(Button)findViewById(R.id.btnstudentdetails);
         studentissues=(Button)findViewById(R.id.btnstudentissues);
+
         studentissues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(studet_details.this,Issue_Disscusion.class));
+            }
+        });
+        studendetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(studet_details.this,ViewStudents.class));
             }
         });
 

@@ -52,6 +52,7 @@ public class StudentProfileDetail extends AppCompatActivity {
                 startActivity( i );
             }
         } );
+
         database=FirebaseDatabase.getInstance();
         ref = database.getReference("Student_Profiles");
         storage=FirebaseStorage.getInstance();

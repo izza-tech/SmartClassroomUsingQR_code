@@ -7,6 +7,21 @@
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".generate_QRcode">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/gqr">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+        </LinearLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -127,4 +142,5 @@ android:layout_marginTop="5dp"        />
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+    </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

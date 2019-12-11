@@ -91,6 +91,7 @@ public class PerformQuiz extends AppCompatActivity {
 
     }
 
+
     private void updateQuestion() {
 
         total++;
@@ -108,6 +109,7 @@ public class PerformQuiz extends AppCompatActivity {
             i.putExtra( "quizSubject",String.valueOf( quizSubject ) );
 
             startActivity( i );
+            finish();
 
         }
         else {
@@ -267,6 +269,7 @@ public class PerformQuiz extends AppCompatActivity {
             }
         }
 
+
         else if (btn_c == view) {
             if (ans_c.equals( ans )) {
 //                btn_c.setTextColor( Color.GREEN );
@@ -350,5 +353,10 @@ public class PerformQuiz extends AppCompatActivity {
                 },1000 );
             }
         }
+
+
     }
+
+
+
 }
